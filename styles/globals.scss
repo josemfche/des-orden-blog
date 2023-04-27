@@ -41,6 +41,10 @@ body {
       box-shadow: 0 0 0 2px #eb524d;
     }
   }
+
+  .searchInputHome::placeholder {
+      color: black;
+    }
 }
 
 .text-shadow {
