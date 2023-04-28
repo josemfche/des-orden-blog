@@ -5,6 +5,10 @@ module.exports = {
     extend: {
       spacing: {
         '2/3': '66.666667%',
+        trecol: '32%',
+      },
+      colors: {
+        salmon: '#EB524D',
       },
     },
   },

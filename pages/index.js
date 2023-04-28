@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { FeaturedPosts } from '../sections/index';
-import { PostCard, Categories, PostWidget, Banner, CategoriesBar } from '../components';
+import { PostCard, /* Categories, PostWidget, */ Banner, CategoriesBar, Pagination } from '../components';
 import { getPosts } from '../services';
 
 export default function Home({ posts }) {
@@ -13,22 +12,36 @@ export default function Home({ posts }) {
       (category) => category.slug === categorySlug,
     ));
 
+  const postsPerPage = filteredPosts.length <= 6 ? filteredPosts.length : 6;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+  /*   const totalPages = Math.ceil(posts.length / postsPerPage); */
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <div className="container mx-auto px-1 mb-8">
       <Banner />
-      <CategoriesBar setCategorySlug={setCategorySlug} />
-      <FeaturedPosts />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-8 col-span-1">
-          {filteredPosts.map((post, index) => (
-            <PostCard key={index} post={post.node} />
+      <CategoriesBar setCategorySlug={setCategorySlug} setCurrentPage={setCurrentPage} />
+      <div className="flex gap-4">
+        <div className="flex flex-wrap w-full gap-3">
+          {currentPosts.map((post) => (
+            <div key={post.node.title} className="w-full md:w-1/3 lg:w-trecol px-3">
+              <PostCard post={post.node} />
+            </div>
           ))}
-        </div>
-        <div className="lg:col-span-4 col-span-1">
-          <div className="lg:sticky relative top-8">
-            <PostWidget />
-            <Categories />
-          </div>
+          <Pagination
+            handlePageChange={handlePageChange}
+            currentPage={currentPage}
+            filteredPosts={filteredPosts}
+            postsPerPage={postsPerPage}
+          />
         </div>
       </div>
     </div>

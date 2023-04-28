@@ -12,7 +12,7 @@ const Hero = () => (
             Soy venezolano, médico psiquiatra dedicado a las finanzas, intentando dar explicaciones al des-orden que vivimos.
           </p>
         </div>
-        <img className="max-w-md h-1/4 rounded-lg" src="https://github.com/AbelinCoin/Blog-Des-orden/blob/main/Frame%2049.png?raw=true" alt="img" />
+        {/*         <img className="max-w-md h-1/4 rounded-lg" src="https://github.com/AbelinCoin/Blog-Des-orden/blob/main/Frame%2049.png?raw=true" alt="img" /> */}
       </div>
     </div>
   </div>

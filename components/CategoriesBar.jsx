@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import { getCategories } from '../services';
 
-const CategoriesBar = ({ setCategorySlug }) => {
+const CategoriesBar = ({ setCategorySlug, setCurrentPage }) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -16,6 +16,7 @@ const CategoriesBar = ({ setCategorySlug }) => {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
     setCategorySlug(category.slug);
+    setCurrentPage(1);
   };
 
   return (
@@ -36,7 +37,7 @@ const CategoriesBar = ({ setCategorySlug }) => {
           {categories.map((category) => (
             <button
               type="button"
-              key={category.id}
+              key={category.slug}
               className={`buttonBar px-4 py-2 rounded-md font-normal ${selectedCategory?.slug === category.slug
                 ? 'bg-red-500 text-white'
                 : 'text-black-800'
