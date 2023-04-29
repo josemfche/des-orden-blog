@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { PostCard, /* Categories, PostWidget, */ Banner, CategoriesBar, Pagination } from '../components';
 import { getPosts } from '../services';
+import NewsletterBanner from '../components/NewsLetterBanner';
 
 export default function Home({ posts }) {
   const [categorySlug, setCategorySlug] = useState('all');
@@ -44,6 +45,7 @@ export default function Home({ posts }) {
           />
         </div>
       </div>
+      <NewsletterBanner />
     </div>
   );
 }

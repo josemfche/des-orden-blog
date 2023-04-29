@@ -13,3 +13,4 @@ export { default as Hero } from './Hero';
 export { default as Banner } from './Banner';
 export { default as CategoriesBar } from './CategoriesBar';
 export { default as Pagination } from './Pagination';
+export { default as NewsLetterBanner } from './NewsLetterBanner';
