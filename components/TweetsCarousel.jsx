@@ -31,6 +31,7 @@ const TweetsCarousel = ({ tweetIds }) => {
       autoPlay
       autoPlaySpeed={3000}
       keyBoardControl
+      showDots
       customTransition="all .5s ease-in-out"
       transitionDuration={500}
       containerClass="carousel-container"
@@ -39,8 +40,8 @@ const TweetsCarousel = ({ tweetIds }) => {
       itemClass="carousel-item-padding-40-px"
     >
       {tweetIds.map((tweetId) => (
-        <div className="px-3" key={tweetId}>
-          <TweetEmbed tweetId={tweetId} options={{}} />
+        <div className="px-3">
+          <TweetEmbed tweetId={tweetId} options={{}} className="h-full" />
         </div>
       ))}
     </Carousel>

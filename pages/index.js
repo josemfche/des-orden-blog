@@ -69,7 +69,7 @@ export default function Home({ posts }) {
         </div>
       </div>
       <div className="container mx-auto py-4">
-        <h1 className="text-4xl font-bold mb-4">Latest Tweets</h1>
+        <h1 className="text-4xl font-bold mb-4 px-6">Latest Tweets</h1>
         <div className="w-full px-4">
           <TweetsCarousel tweetIds={['1656979313919393794', '1656979313919393794', '1656979313919393794']} />
         </div>
