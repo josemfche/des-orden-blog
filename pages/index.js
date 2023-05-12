@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { useState } from 'react';
-import { PostCard, PostBanner, /* Categories, PostWidget, */ BannerWithImage, CategoriesBar, Pagination, TwoColumns, Tweet } from '../components';
+import { PostCard, PostBanner, /* Categories, PostWidget, */ BannerWithImage, CategoriesBar, Pagination, TwoColumns, TweetsCarousel } from '../components';
 import { getPosts } from '../services';
 import NewsletterBanner from '../components/NewsLetterBanner';
 
@@ -68,12 +68,11 @@ export default function Home({ posts }) {
           />
         </div>
       </div>
-      <div className="flex flex-row justify-around mb-8">
-        <Tweet tweetId="1656979313919393794" />
-        <Tweet tweetId="1656979313919393794" />
-        <Tweet tweetId="1656979313919393794" />
-        <Tweet tweetId="1656979313919393794" />
-        <Tweet tweetId="1656979313919393794" />
+      <div className="container mx-auto py-4">
+        <h1 className="text-4xl font-bold mb-4">Latest Tweets</h1>
+        <div className="w-full px-4">
+          <TweetsCarousel tweetIds={['1656979313919393794', '1656979313919393794', '1656979313919393794']} />
+        </div>
       </div>
       <div className="bg-transparent">
         <div className="container mx-auto px-4">

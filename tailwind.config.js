@@ -12,6 +12,9 @@ module.exports = {
         thegray: '#404040',
       },
     },
+    container: {
+      center: true,
+    },
   },
   variants: {
     extend: {},

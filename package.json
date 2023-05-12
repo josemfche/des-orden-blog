@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "v14.21.3"
+    "node": "v16.15.1"
   },
   "engineStrict": true,
   "scripts": {
@@ -26,8 +26,9 @@
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-multi-carousel": "^2.6.5",
+    "react-multi-carousel": "^2.8.3",
     "react-query": "^3.39.3",
+    "react-slick": "^0.29.0",
     "react-tweet-embed": "^2.0.0",
     "sass": "^1.42.1",
     "swr": "^1.0.1",
