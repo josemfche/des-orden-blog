@@ -16,7 +16,7 @@ const Header = () => (
       </Link>
     </div>
     <div className="flex items-center">
-      <Link href="/link1">
+      <Link href="/blog">
         <a className="text-black font-normal cursor-pointer mr-4">Artículos</a>
       </Link>
       <Link href="/link2">

@@ -24,12 +24,12 @@ const CryptoBox = () => {
     fetchData();
   }, []);
 
-  if (loading) {
+  if (loading || cryptoData === null) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="bg-white w-1/4 rounded-lg p-4">
+    <div className="bg-white w-5/6 rounded-lg p-4">
       {Object.keys(cryptoData.data).map((key) => {
         const coin = cryptoData.data[key];
         const isPositive24h = coin.quote.USD.percent_change_24h >= 0;

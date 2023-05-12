@@ -1,33 +1,22 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import Image from 'next/image';
-import CryptoBox from './CryptoBox';
 
 const Hero = () => (
   <div className="container mx-auto my-10 ">
     <div className="px-6 lg:px-16 py-10 rounded-3xl">
-      <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-5">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-5">
         <div className="flex flex-row gap-5 lg:gap-10">
           <div className="flex flex-col gap-5 lg:gap-10">
-            <p className=" text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-left">
-              Economía, política e inversiones desde otra perspectiva.
+            <p className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center">
+              Nuestros artículos
             </p>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-500">
-              Soy venezolano, médico psiquiatra dedicado a las finanzas, intentando dar explicaciones al des-orden que vivimos.
+            <p className="text-sm sm:text-base lg:text-lg text-gray-800">
+              Blog dedicado al estudio de las finanzas, la economia y la politica
             </p>
-          </div>
-          <div className="">
-            <div className="container mx-auto mt-4">
-              <Image width="500" height="400" className="rounded-lg" src="/frame49.png" />
-            </div>
           </div>
         </div>
-        {/*         <img className="max-w-md h-1/4 rounded-lg" src="https://github.com/AbelinCoin/Blog-Des-orden/blob/main/Frame%2049.png?raw=true" alt="img" /> */}
       </div>
-    </div>
-    <div className="container mx-auto mt-4">
-      <CryptoBox />
     </div>
     <div className="flex items-center justify-center">
       <div className="relative">
