@@ -69,11 +69,11 @@ export default function Home({ posts }) {
         </div>
       </div>
       <div className="flex flex-row justify-around mb-8">
-        <Tweet tweetId="1656864400194584579" />
-        <Tweet tweetId="1656864400194584579" />
-        <Tweet tweetId="1656864400194584579" />
-        <Tweet tweetId="1656864400194584579" />
-        <Tweet tweetId="1656864400194584579" />
+        <Tweet tweetId="1656979313919393794" />
+        <Tweet tweetId="1656979313919393794" />
+        <Tweet tweetId="1656979313919393794" />
+        <Tweet tweetId="1656979313919393794" />
+        <Tweet tweetId="1656979313919393794" />
       </div>
       <div className="bg-transparent">
         <div className="container mx-auto px-4">
