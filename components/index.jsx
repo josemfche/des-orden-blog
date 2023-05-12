@@ -18,3 +18,4 @@ export { default as NewsLetterBanner } from './NewsLetterBanner';
 export { default as CryptoBox } from './CryptoBox';
 export { default as PostBanner } from './PostBanner';
 export { default as TwoColumns } from './TwoColumns';
+export { default as Tweet } from './Tweet';

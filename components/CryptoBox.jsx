@@ -10,7 +10,7 @@ const CryptoBox = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          '/api/get-market-data?symbol=BTC,ETH,USDT,XLA',
+          /* '/api/get-market-data?symbol=BTC,ETH,USDT,XLA', */
         );
         setCryptoData(res.data);
         setLoading(false);

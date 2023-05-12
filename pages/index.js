@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { useState } from 'react';
-import { PostCard, PostBanner, /* Categories, PostWidget, */ BannerWithImage, CategoriesBar, Pagination, TwoColumns } from '../components';
+import { PostCard, PostBanner, /* Categories, PostWidget, */ BannerWithImage, CategoriesBar, Pagination, TwoColumns, Tweet } from '../components';
 import { getPosts } from '../services';
 import NewsletterBanner from '../components/NewsLetterBanner';
 
@@ -45,7 +45,7 @@ export default function Home({ posts }) {
       <BannerWithImage isHome />
       <CategoriesBar setCategorySlug={setCategorySlug} setCurrentPage={setCurrentPage} />
       <div className="flex gap-4">
-        <div className="flex flex-wrap w-full gap-3">
+        <div className="flex flex-wrap w-full gap-3 mb-8">
           {currentPosts.map((post, index) => {
             if (index === 0) {
               return (
@@ -67,6 +67,13 @@ export default function Home({ posts }) {
             postsPerPage={postsPerPage}
           />
         </div>
+      </div>
+      <div className="flex flex-row justify-around mb-8">
+        <Tweet tweetId="1656864400194584579" />
+        <Tweet tweetId="1656864400194584579" />
+        <Tweet tweetId="1656864400194584579" />
+        <Tweet tweetId="1656864400194584579" />
+        <Tweet tweetId="1656864400194584579" />
       </div>
       <div className="bg-transparent">
         <div className="container mx-auto px-4">
