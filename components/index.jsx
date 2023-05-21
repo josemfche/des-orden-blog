@@ -19,3 +19,4 @@ export { default as CryptoBox } from './CryptoBox';
 export { default as PostBanner } from './PostBanner';
 export { default as TwoColumns } from './TwoColumns';
 export { default as TweetsCarousel } from './TweetsCarousel';
+export { default as YoutubeGrid } from './YoutubeGrid';
