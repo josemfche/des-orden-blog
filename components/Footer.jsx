@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => (
   <footer className="bg-thegray">
-    <div className="container mx-auto py-12 px-24 flex flex-wrap flex-col sm:flex-row">
+    <div className="container mx-auto py-12 px-6 sm:px-24 flex flex-wrap flex-col sm:flex-row">
       <div className="flex-grow sm:flex-grow-0 flex items-center justify-center sm:justify-start mb-4 sm:mb-0">
         <Link href="/">
           <div className="flex items-center cursor-pointer">
@@ -14,7 +14,7 @@ const Footer = () => (
           </div>
         </Link>
       </div>
-      <div className="flex-col sm:flex-grow flex items-center justify-center">
+      <div className="flex-col sm:flex-grow flex items-center justify-center sm:justify-start">
         <ul className="flex justify-center sm:justify-start text-white mb-8">
           <li className="mx-5">
             <a href="/">Concept</a>

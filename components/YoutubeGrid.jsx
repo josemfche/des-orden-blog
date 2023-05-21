@@ -12,9 +12,9 @@ const YoutubeGrid = () => {
           'https://www.googleapis.com/youtube/v3/search',
           {
             params: {
-              key: 'AIzaSyCy9RfJsNt47PdSB8yig6Hu_XZNvhl58ak',
+              key: process.env.NEXT_PUBLIC_YT_KEY,
               part: 'snippet',
-              channelId: 'UC0wbMIqsfZgNbZV75RWcFNw',
+              channelId: process.env.NEXT_PUBLIC_CHANNEL_ID,
               maxResults: 10,
             },
           },
@@ -37,13 +37,18 @@ const YoutubeGrid = () => {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="flex flex-wrap -mx-4">
         {videos.map((video) => (
-          <div key={video.id.videoId} className="max-w-sm rounded overflow-hidden border border-zinc-800">
-            <YouTube videoId={video.id.videoId} opts={youtubeOptions} />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2 line-clamp-2">{video.snippet.title}</div>
-              <p className="text-gray-700 text-base line-clamp-3">{video.snippet.description}</p>
+          <div
+            key={video.id.videoId}
+            className="w-full sm:w-1/2 md:w-1/3 px-4 mb-8"
+          >
+            <div className="max-w-sm rounded overflow-hidden border border-zinc-800">
+              <YouTube videoId={video.id.videoId} opts={youtubeOptions} />
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2 line-clamp-2">{video.snippet.title}</div>
+                <p className="text-gray-700 text-base line-clamp-3">{video.snippet.description}</p>
+              </div>
             </div>
           </div>
         ))}

@@ -6,8 +6,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
 const Header = () => (
-  <div className="container mx-auto px-10 mb-4 pt-3 flex items-center justify-between">
-    <div className="flex items-center">
+  <div className="container mx-auto px-4 sm:px-10 mb-4 pt-3 flex flex-wrap items-center justify-between">
+    <div className="flex items-center mb-4 sm:mb-0">
       <Link href="/">
         <div className="flex items-center cursor-pointer">
           <img src="/logoBlog.png" alt="Logo" className="w-12 h-12 mr-2" />
@@ -15,7 +15,7 @@ const Header = () => (
         </div>
       </Link>
     </div>
-    <div className="flex items-center">
+    <div className="flex items-center mb-4 sm:mb-0">
       <Link href="/blog">
         <a className="text-black font-normal cursor-pointer mr-4">Artículos</a>
       </Link>
