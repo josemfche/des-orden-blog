@@ -19,7 +19,7 @@ const Header = () => (
       <Link href="/blog">
         <a className="text-black font-normal cursor-pointer mr-4">Artículos</a>
       </Link>
-      <Link href="/link2">
+      <Link href="/podcast-videos">
         <a className="text-black font-normal cursor-pointer mr-4">Podcast</a>
       </Link>
       <Link href="/link3">
