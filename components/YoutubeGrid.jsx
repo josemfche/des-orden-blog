@@ -62,7 +62,7 @@ const YoutubeGrid = () => {
   return (
     <div className="container mx-auto px-4">
       {/* Refactor to render a series of elements */}
-      <CategoriesBar classNames="mb-4" setCategorySlug={setSeasonSlug} setCurrentPage={setCurrentPage} />
+      <CategoriesBar classNames="mb-4" setCategorySlug={setSeasonSlug} seasonSlug={seasonSlug} setCurrentPage={setCurrentPage} />
       <div className="flex flex-wrap mx-4">
         {currentVideos.map((video) => (
           <div
