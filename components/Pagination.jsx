@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pagination = ({ handlePageChange, currentPage, filteredPosts, postsPerPage }) => (
+const Pagination = ({ handlePageChange, currentPage, elements, elementsPerPage }) => (
   <div className="w-full mt-4">
     <nav className="flex justify-center">
       <button
@@ -11,7 +11,7 @@ const Pagination = ({ handlePageChange, currentPage, filteredPosts, postsPerPage
       >
         {'<'}
       </button>
-      {Array.from({ length: Math.ceil(filteredPosts.length / postsPerPage) }, (_, i) => i + 1).map((pageNumber) => (
+      {Array.from({ length: Math.ceil(elements.length / elementsPerPage) }, (_, i) => i + 1).map((pageNumber) => (
         <button
           type="button"
           key={pageNumber}
@@ -23,9 +23,9 @@ const Pagination = ({ handlePageChange, currentPage, filteredPosts, postsPerPage
       ))}
       <button
         type="button"
-        onClick={() => handlePageChange(Math.ceil(filteredPosts.length / postsPerPage))}
-        disabled={currentPage === Math.ceil(filteredPosts.length / postsPerPage)}
-        className={`px-3 py-1 bg-white border text-gray-900 mx-1 focus:outline-none ${currentPage === Math.ceil(filteredPosts.length / postsPerPage) && 'opacity-50 cursor-default'}`}
+        onClick={() => handlePageChange(Math.ceil(elements.length / elementsPerPage))}
+        disabled={currentPage === Math.ceil(elements.length / elementsPerPage)}
+        className={`px-3 py-1 bg-white border text-gray-900 mx-1 focus:outline-none ${currentPage === Math.ceil(elements.length / elementsPerPage) && 'opacity-50 cursor-default'}`}
       >
         {'>'}
       </button>

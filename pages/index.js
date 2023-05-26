@@ -41,21 +41,21 @@ export default function Home({ posts }) {
   };
 
   return (
-    <div className="container mx-auto px-1 mb-8">
+    <div className="px-1 mb-8 md:mx-24">
       <BannerWithImage isHome />
       <CategoriesBar setCategorySlug={setCategorySlug} setCurrentPage={setCurrentPage} />
-      <div className="flex gap-4">
-        <div className="flex flex-wrap w-full gap-3 mb-8">
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-wrap w-full gap-3 mb-8 justify-center">
           {currentPosts.map((post, index) => {
             if (index === 0) {
               return (
-                <div key={post.node.title} className="w-full md:w-100 lg:w-100 px-3">
-                  <PostBanner post={post.node} />;
+                <div key={post.node.title} className="w-full md:w-full lg:w-full px-3">
+                  <PostBanner post={post.node} />
                 </div>
               );
             }
             return (
-              <div key={post.node.title} className="w-full md:w-1/3 lg:w-trecol px-3">
+              <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol px-3">
                 <PostCard post={post.node} />
               </div>
             );
@@ -63,8 +63,8 @@ export default function Home({ posts }) {
           <Pagination
             handlePageChange={handlePageChange}
             currentPage={currentPage}
-            filteredPosts={filteredPosts}
-            postsPerPage={postsPerPage}
+            elements={filteredPosts}
+            elementsPerPage={postsPerPage}
           />
         </div>
       </div>

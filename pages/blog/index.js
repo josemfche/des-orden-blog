@@ -26,9 +26,14 @@ export default function Home({ posts }) {
     setCurrentPage(pageNumber);
   };
 
+  const bannerText = {
+    title: 'Nuestros artículos',
+    subTitle: 'Blog dedicado al estudio de las finanzas, la economia y la politica',
+  };
+
   return (
     <div className="container mx-auto px-1 mb-8">
-      <Banner />
+      <Banner bannerText={bannerText} isSearch />
       <CategoriesBar setCategorySlug={setCategorySlug} setCurrentPage={setCurrentPage} />
       <div className="flex gap-4">
         <div className="flex flex-wrap w-full gap-3">

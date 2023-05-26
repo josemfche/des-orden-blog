@@ -1,9 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import YouTube from 'react-youtube';
+import Pagination from './Pagination';
+import CategoriesBar from './CategoriesBar';
 
 const YoutubeGrid = () => {
   const [videos, setVideos] = useState([]);
+
+  const [seasonSlug, setSeasonSlug] = useState('all');
+
+  // eslint-disable-next-line no-nested-ternary
+  /*   const filteredVideos = seasonSlug === 'all'
+      ? videos
+      : videos.filter((post) => post.node.categories.some(
+        (season) => season.slug === seasonSlug,
+      )); */
+
+  const postsPerPage = videos.length <= 6 ? videos.length : 6;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentVideos = videos.slice(indexOfFirstPost, indexOfLastPost);
+
+  /*   const totalPages = Math.ceil(posts.length / postsPerPage); */
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -37,8 +61,10 @@ const YoutubeGrid = () => {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="flex flex-wrap -mx-4">
-        {videos.map((video) => (
+      {/* Refactor to render a series of elements */}
+      <CategoriesBar classNames="mb-4" setCategorySlug={setSeasonSlug} setCurrentPage={setCurrentPage} />
+      <div className="flex flex-wrap mx-4">
+        {currentVideos.map((video) => (
           <div
             key={video.id.videoId}
             className="w-full sm:w-1/2 md:w-1/3 px-4 mb-8"
@@ -52,6 +78,12 @@ const YoutubeGrid = () => {
             </div>
           </div>
         ))}
+        <Pagination
+          handlePageChange={handlePageChange}
+          currentPage={currentPage}
+          elements={videos}
+          elementsPerPage={postsPerPage}
+        />
       </div>
     </div>
   );

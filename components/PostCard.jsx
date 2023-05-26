@@ -11,7 +11,7 @@ const PostCard = ({ post }) => (
     <div className="relative overflow-hidden pb-80">
       <Image src={post.featuredImage.url} layout="fill" alt="" className="object-top absolute h-80 w-full object-cover border rounded-t-lg" />
     </div>
-    <div className="bg-white border rounded-b-lg p-0 lg:p-6 pb-12 mb-8 h-600">
+    <div className="bg-white border rounded-b-lg p-0 lg:p-6 p-6 pb-12 mb-8 h-600">
       <div className="block lg:flex text-left items-left justify-left mb-4 w-full">
         {/*       <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center">
         <Image
@@ -32,13 +32,15 @@ const PostCard = ({ post }) => (
           <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
         </div>
       </div>
-      <h1 className="transition duration-700 text-left mb-4 cursor-pointer hover:text-pink-600 text-3xl font-normal">
-        <Link href={`/post/${post.slug}`}>{post.title}</Link>
-      </h1>
+      <div style={{ minHeight: '60px' }} className="mb-1">
+        <h1 className="mb-2transition duration-700 text-left cursor-pointer hover:text-thegray text-2xl font-normal">
+          <Link href={`/post/${post.slug}`}>{post.title}</Link>
+        </h1>
+      </div>
       <div className="text-center text-gray-700 font-normal mb-4">
         <ul className="flex justify-left flex-wrap">
-          {post.categories.map((category) => (
-            <li key={category.slug} className="mx-1 mb-1 border bg-black text-white rounded-sm px-2 py-1">
+          {post.categories?.map((category) => (
+            <li key={category.slug} className="mr-1 mb-1 border bg-black text-white rounded-sm px-2 py-1">
               <Link href={`/category/${category.slug}`}>
                 <a>{category.name}</a>
               </Link>
@@ -46,7 +48,7 @@ const PostCard = ({ post }) => (
           ))}
         </ul>
       </div>
-      <p className="text-left text-lg text-gray-700 font-normal mb-4">
+      <p style={{ minHeight: '100px' }} className="text-left text-md text-gray-700 font-normal mb-4 text-ellipsis overflow-hidden">
         {post.excerpt}
       </p>
       <div className="text-left">

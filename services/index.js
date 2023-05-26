@@ -102,6 +102,7 @@ export const getSimilarPosts = async (categories, slug) => {
         }
         createdAt
         slug
+        excerpt
       }
     }
   `;
@@ -248,6 +249,7 @@ export const getRecentPosts = async () => {
         }
         createdAt
         slug
+        excerpt
       }
     }
   `;

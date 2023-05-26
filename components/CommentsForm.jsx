@@ -75,15 +75,22 @@ const CommentsForm = ({ slug }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4">Leave a Reply</h3>
+    <div className="rounded-lg p-8 pb-12 mb-8">
+      <h3 className="text-gray-800 text-xl font-semibold pb-4">Deja un comentario</h3>
+      <p className="text-gray-400">Tus datos no serán publicados</p>
       <div className="grid grid-cols-1 gap-4 mb-4">
-        <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
+        <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-white-100 border text-gray-700" name="comment" placeholder="Comentario" />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-        <input type="text" value={formData.name} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Name" name="name" />
-        <input type="email" value={formData.email} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Email" name="email" />
+      <div className="flex lg:flex-row mb-4 flex-col justify-between">
+        <div className="flex flex-row w-full lg:w-3/4 mb-4">
+          <input type="text" value={formData.name} onChange={onInputChange} className="mr-2 py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 border bg-white-100 text-gray-700" placeholder="Nombre*" name="name" />
+          <input type="email" value={formData.email} onChange={onInputChange} className="mr-2 py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 border bg-white-100 text-gray-700" placeholder="Email*" name="email" />
+        </div>
+        <div className="flex lg:justify-end justify-center w-full lg:w-1/3">
+          <button type="button" onClick={handlePostSubmission} className="lg:w-1/2 w-1/2 transition duration-500 ease hover:bg-indigo-900 inline-block bg-thegray text-sm font-medium rounded-md text-white px-6 py-3 cursor-pointer">Comentar</button>
+        </div>
       </div>
+      {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">Comentario enviado para revisión</span>}
       <div className="grid grid-cols-1 gap-4 mb-4">
         <div>
           <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" />
@@ -91,10 +98,6 @@ const CommentsForm = ({ slug }) => {
         </div>
       </div>
       {error && <p className="text-xs text-red-500">All fields are mandatory</p>}
-      <div className="mt-8">
-        <button type="button" onClick={handlePostSubmission} className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">Post Comment</button>
-        {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">Comment submitted for review</span>}
-      </div>
     </div>
   );
 };

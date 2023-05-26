@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import { getCategories } from '../services';
 
-const CategoriesBar = ({ setCategorySlug, setCurrentPage }) => {
+const CategoriesBar = ({ setCategorySlug, setCurrentPage, classNames }) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -20,7 +20,7 @@ const CategoriesBar = ({ setCategorySlug, setCurrentPage }) => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className={`${classNames} flex justify-center`}>
       <div className="bg-white rounded-lg mb-8 border shadow-sm">
         <div className="flex flex-wrap gap-2 px-3 py-2 bg-white">
           <button

@@ -5,16 +5,14 @@ import moment from 'moment';
 import Link from 'next/link';
 
 const PostBanner = ({ post }) => (
-  <div className="flex flex-row pb-10">
-    <div className="w-1/2 lg:w-3/5">
-      <div className="relative overflow-hidden p-80">
-        <Image
-          className="object-center border rounded-l-lg"
-          src={post.featuredImage.url}
-          layout="fill"
-          alt=""
-        />
-      </div>
+  <div className="flex flex-col xl:flex-row lg:flex-row sm:flex-col mb-10">
+    <div className="relative overflow-hidden lg:w-3/5 md:w-full h-100 p-40">
+      <Image
+        className="border rounded-l-lg"
+        src={post.featuredImage.url}
+        layout="fill"
+        alt=""
+      />
     </div>
     <div className="flex flex-col justify-between w-full lg:h-fit lg:w-2/5 bg-white border py-32 rounded-r-lg lg:px-6">
       <div className="text-center text-gray-700 font-normal mb-4">
@@ -42,9 +40,9 @@ const PostBanner = ({ post }) => (
       <p className="text-left text-lg text-gray-700 font-normal mb-8">
         {post.excerpt}
       </p>
-      <div className="text-left justify-self-end">
+      <div className="text-left flex lg:justify-start md:justify-left">
         <Link href={`/post/${post.slug}`}>
-          <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-white text-black border text-lg font-medium rounded-md w-4/3 px-8 py-3 cursor-pointer">Continue Reading</span>
+          <span className="md:justify-center transition duration-500 ease transform hover:-translate-y-1 bg-white text-black border text-lg font-medium rounded-md w-4/3 px-8 py-3 cursor-pointer">Continue Reading</span>
         </Link>
       </div>
     </div>

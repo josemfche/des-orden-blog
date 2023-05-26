@@ -17,11 +17,11 @@ const NewsletterBanner = () => (
             name="email"
             id="email"
             placeholder="Enter your email"
-            className="bg-gray-100 border border-gray-300 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="rounded-l-sm bg-gray-100 border border-gray-300 px-2 py-1 focus:outline-none focus:ring-1 focus:ring-black-500"
           />
           <button
             type="submit"
-            className="bg-salmon text-white px-4 py-1 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-gray-600 text-white px-4 py-1 hover:bg-thegray rounded-r-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Subscribe
           </button>
