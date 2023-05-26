@@ -45,8 +45,8 @@ export default function Home({ posts }) {
           <Pagination
             handlePageChange={handlePageChange}
             currentPage={currentPage}
-            filteredPosts={filteredPosts}
-            postsPerPage={postsPerPage}
+            elements={filteredPosts}
+            elementsPage={postsPerPage}
           />
         </div>
       </div>
