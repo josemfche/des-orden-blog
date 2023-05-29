@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import YouTube from 'react-youtube';
+import Modal from 'react-modal';
 import Pagination from './Pagination';
 import CategoriesBar from './CategoriesBar';
 
 const YoutubeGrid = () => {
   const [videos, setVideos] = useState([]);
-
   const [seasonSlug, setSeasonSlug] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isOpen, setSetIsOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const handleVideoOpen = (videoId) => {
+    setSetIsOpen(true);
+    setSelectedVideo(videoId);
+  };
+
+  const handleVideoClose = () => {
+    /* setSelectedVideo(); */
+    setSetIsOpen(false);
+  };
 
   // eslint-disable-next-line no-nested-ternary
   /*   const filteredVideos = seasonSlug === 'all'
@@ -17,7 +30,6 @@ const YoutubeGrid = () => {
       )); */
 
   const postsPerPage = videos.length <= 6 ? videos.length : 6;
-  const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -43,7 +55,7 @@ const YoutubeGrid = () => {
             },
           },
         );
-        setVideos(response.data.items);
+        setVideos(response.data.items.filter((video) => video.id.kind !== 'youtube#channel'));
       } catch (error) {
         console.error('Error fetching videos:', error);
       }
@@ -51,33 +63,55 @@ const YoutubeGrid = () => {
 
     fetchVideos();
   }, []);
+
   const youtubeOptions = {
     width: '100%',
-    height: '200px',
+    height: '100%',
     playerVars: {
       autoplay: 0,
     },
   };
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 justify-center flex flex-col items-center">
       {/* Refactor to render a series of elements */}
-      <CategoriesBar classNames="mb-4" setCategorySlug={setSeasonSlug} seasonSlug={seasonSlug} setCurrentPage={setCurrentPage} />
+      <CategoriesBar
+        classNames="mb-4"
+        setCategorySlug={setSeasonSlug}
+        seasonSlug={seasonSlug}
+        setCurrentPage={setCurrentPage}
+      />
       <div className="flex flex-wrap mx-4">
-        {currentVideos.map((video) => (
-          <div
-            key={video.id.videoId}
-            className="w-full sm:w-1/2 md:w-1/3 px-4 mb-8"
-          >
-            <div className="max-w-sm rounded overflow-hidden border border-zinc-800">
-              <YouTube videoId={video.id.videoId} opts={youtubeOptions} />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2 line-clamp-2">{video.snippet.title}</div>
-                <p className="text-gray-700 text-base line-clamp-3">{video.snippet.description}</p>
+        {currentVideos.map((video) => {
+          const { videoId } = video.id;
+          return (
+            <div
+              key={videoId}
+              className="w-full sm:w-1/2 md:w-1/3 px-4 mb-8"
+            >
+              <div className="max-w-sm rounded overflow-hidden border border-zinc-800">
+                <div
+                  className="cursor-pointer"
+                  onClick={() => handleVideoOpen(videoId)}
+                >
+                  <img
+                    className="w-full"
+                    src={video.snippet.thumbnails.medium.url}
+                    alt={video.snippet.title}
+                  />
+                </div>
+                <div className="px-6 py-4">
+                  <div className="font-bold text-xl mb-2 line-clamp-2">
+                    {video.snippet.title}
+                  </div>
+                  <p className="text-gray-700 text-base line-clamp-3">
+                    {video.snippet.description}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
         <Pagination
           handlePageChange={handlePageChange}
           currentPage={currentPage}
@@ -85,6 +119,19 @@ const YoutubeGrid = () => {
           elementsPerPage={postsPerPage}
         />
       </div>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={handleVideoClose}
+        ariaHideApp={false}
+        className="Modal"
+        overlayClassName="Overlay"
+      >
+        <YouTube
+          videoId={selectedVideo}
+          opts={youtubeOptions}
+          className="h-full flex justify-center items-center"
+        />
+      </Modal>
     </div>
   );
 };
