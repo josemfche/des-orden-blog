@@ -3,7 +3,7 @@ import { YoutubeGrid, Banner } from '../components';
 
 const Layout = () => {
   const bannerText = {
-    title: 'Nuestros artículos',
+    title: 'Nuestros Videos del canal',
     subTitle: 'Blog dedicado al estudio de las finanzas, la economia y la politica',
   };
 
