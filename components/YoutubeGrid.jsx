@@ -83,13 +83,14 @@ const YoutubeGrid = () => {
       />
       <div className="flex flex-wrap mx-4">
         {currentVideos.map((video) => {
+          console.log(video);
           const { videoId } = video.id;
           return (
             <div
               key={videoId}
               className="w-full sm:w-1/2 md:w-1/3 px-4 mb-8"
             >
-              <div className="max-w-sm rounded overflow-hidden border border-zinc-800">
+              <div className="max-w-sm rounded overflow-hidden border border-zinc-800 bg-white">
                 <div
                   className="cursor-pointer"
                   onClick={() => handleVideoOpen(videoId)}
