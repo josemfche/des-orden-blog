@@ -11,6 +11,7 @@ const YoutubeGrid = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isOpen, setSetIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [errorLoading, setErrorLoading] = useState(false);
 
   const handleVideoOpen = (videoId) => {
     setSetIsOpen(true);
@@ -57,7 +58,9 @@ const YoutubeGrid = () => {
         );
         setVideos(response.data.items.filter((video) => video.id.kind !== 'youtube#channel'));
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Error fetching videos:', error);
+        setErrorLoading(true);
       }
     };
 
@@ -72,6 +75,8 @@ const YoutubeGrid = () => {
     },
   };
 
+  if (errorLoading) return (<h1>Error loading videos</h1>);
+
   return (
     <div className="container mx-auto px-4 justify-center flex flex-col items-center">
       {/* Refactor to render a series of elements */}
@@ -83,7 +88,6 @@ const YoutubeGrid = () => {
       />
       <div className="flex flex-wrap mx-4">
         {currentVideos.map((video) => {
-          console.log(video);
           const { videoId } = video.id;
           return (
             <div

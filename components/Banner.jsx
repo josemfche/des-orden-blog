@@ -1,18 +1,34 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
-const Hero = ({ bannerText, isSearch }) => (
+const Hero = ({ bannerText, isSearch, imageUrl }) => (
   <div className="container mx-auto my-10 text-center">
+    {
+      imageUrl
+      && (
+        <div className="relative w-full h-0 overflow-hidden" style={{ paddingBottom: '56.25%' }}>/
+          <Image
+            src={imageUrl}
+            alt="Banner Image"
+            layout="fill"
+            objectFit="cover"
+            // className="rounded-xl"
+            placeholder="empty"
+          />
+        </div>
+      )
+    }
     <div className="px-6 lg:px-16 py-10 rounded-3xl">
       <div className="flex flex-col lg:flex-row justify-center items-center gap-5">
         <div className="flex flex-row gap-5 lg:gap-10">
           <div className="flex flex-col gap-5 lg:gap-10">
-            <p className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center">
-              {bannerText.title}
+            <p className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl text-center">
+              {bannerText?.title}
             </p>
             <p className="text-sm sm:text-base lg:text-lg text-gray-800">
-              {bannerText.subTitle}
+              {bannerText?.subTitle}
             </p>
           </div>
         </div>

@@ -21,3 +21,4 @@ export { default as PostBanner } from './PostBanner';
 export { default as TwoColumns } from './TwoColumns';
 export { default as TweetsCarousel } from './TweetsCarousel';
 export { default as YoutubeGrid } from './YoutubeGrid';
+export { default as ContactCard } from './ContactCard';

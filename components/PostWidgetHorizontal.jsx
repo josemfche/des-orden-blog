@@ -18,8 +18,6 @@ const PostWidgetHorizontal = ({ categories, slug }) => {
     }
   }, [slug]);
 
-  console.log(relatedPosts);
-
   return (
     <div className="rounded-lg lg:p-8 p-2 pb-12 mb-8">
       <div className="mb-4 flex flex-row items-center justify-between">

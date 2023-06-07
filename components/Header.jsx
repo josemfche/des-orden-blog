@@ -22,10 +22,10 @@ const Header = () => (
       <Link href="/podcast-videos">
         <a className="text-black font-normal cursor-pointer mr-4">Podcast</a>
       </Link>
-      <Link href="/link3">
+      <Link href="/sobre-nosotros">
         <a className="text-black font-normal cursor-pointer mr-4">Sobre nosotros</a>
       </Link>
-      <Link href="/link4">
+      <Link href="/contacto">
         <a className="text-black font-normal cursor-pointer">Contacto</a>
       </Link>
     </div>
