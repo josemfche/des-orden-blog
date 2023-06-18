@@ -9,6 +9,8 @@ const ContactForm = () => {
     comment: '',
   });
 
+  const [successMessage, setSuccessMessage] = useState('');
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -16,20 +18,37 @@ const ContactForm = () => {
     });
   };
 
-  const submitFormToGraphCMS = async (data) => {
-    try {
-      // Assuming you have a function to submit the form data to GraphCMS
-      // Make the necessary API requests to submit the data to GraphCMS
-      // Handle success and error cases accordingly
-      console.log('Form data submitted:', data);
-    } catch (error) {
-      console.log('Error submitting form:', error);
-    }
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    submitFormToGraphCMS(formData);
+
+    try {
+      const response = await fetch('/api/mailchimp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Success! Clear the form and display success message
+        setFormData({
+          name: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          comment: '',
+        });
+        setSuccessMessage('Gracias por contactarnos!');
+      } else {
+        // Handle the error response from Mailchimp
+        const errorData = await response.json();
+        console.log('Error adding contact to Mailchimp:', errorData);
+      }
+    } catch (error) {
+      // Handle any other errors that occur during the API request
+      console.log('Error submitting form to Mailchimp:', error);
+    }
   };
 
   return (
@@ -107,10 +126,11 @@ const ContactForm = () => {
               />
             </div>
           </div>
-          <div className="flex">
+          <div className="flex flex-col">
             <button type="submit" className="bg-gray-500 rounded-md text-white py-2 px-4 w-full h-12 md:h-14">
               Comentar
             </button>
+            {successMessage && <div className="text-green-500 mt-2">{successMessage}</div>}
           </div>
         </form>
       </div>
