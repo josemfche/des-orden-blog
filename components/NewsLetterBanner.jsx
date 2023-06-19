@@ -50,14 +50,14 @@ const NewsletterBanner = () => {
   return (
     <div className="bg-white border border-gray-300 shadow-lg mx-6 my-12 p-4 rounded-lg py-12">
       <div className="flex flex-col md:flex-row justify-around items-center py-6">
-        <div className="mb-4 md:mb-0 flex flex-col items-center justify-center lg:justify-start lg:items-left lg:text-left text-center">
-          <div className="text-3xl font-normal mb-4">Suscribete al newsletter</div>
-          <div>Suscribete al newsletter</div>
+        <div className="lg:mb-0 flex flex-col items-center justify-center lg:justify-start lg:items-left lg:text-left text-center">
+          <div className="text-2xl lg:text-4xl font-normal mb-4">Suscribete al newsletter</div>
+          <div className="w-full lg:text-xl mb-2 lg:text-left">Suscribete al newsletter</div>
         </div>
-        <div className="flex flex-col">
-          <form onSubmit={handleSubmit}>
-            <div className="lg:flex-col lg:space-x-4 flex flex-col">
-              <div className="flex flex-row lg:space-x-4">
+        <div className="flex flex-col justify-center">
+          <form className="flex justify-center" onSubmit={handleSubmit}>
+            <div className="lg:flex-col flex flex-col px-8 w-3/4">
+              <div className="flex flex-row">
                 <div className="mb-2 lg:w-auto w-full">
                   <label htmlFor="firstName" className="font-bold mr-2 text-gray-700">
                     Nombre:
