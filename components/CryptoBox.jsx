@@ -1,37 +1,13 @@
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import axios from 'axios';
 
-const CryptoBox = () => {
-  const [cryptoData, setCryptoData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          '/api/get-market-data?symbol=BTC,ETH,USDT,XLA',
-        );
-        setCryptoData(res.data);
-        setLoading(false);
-        console.error(res);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+const CryptoBox = ({ cryptoData, loading }) => {
   if (loading || cryptoData === null) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="bg-white w-5/6 rounded-lg p-4">
-      {Object.keys(cryptoData.data).map((key) => {
-        const coin = cryptoData.data[key];
+    <div className="bg-white rounded-lg p-4">
+      {cryptoData.map((coin) => {
         const isPositive24h = coin.quote.USD.percent_change_24h >= 0;
         const isPositive1h = coin.quote.USD.percent_change_1h >= 0;
 

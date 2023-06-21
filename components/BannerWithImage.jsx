@@ -1,25 +1,24 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import CryptoBox from './CryptoBox';
+import CotizacionesCarousel from './CotizacionesCarousel';
 
 const Hero = ({ isHome }) => (
-  <div className="container mx-auto my-10 px-4 md:px-6 lg:px-16">
-    <div className="py-10 rounded-3xl">
-      <div className="flex flex-col md:flex-row justify-center items-center gap-5">
-        <div className="flex flex-col gap-5 justify-self-start md:gap-10 w-full md:w-2/3 pr-5">
-          <p className="text-2xl md:text-4xl lg:text-6xl font-bold text-left">
-            Economía, política e inversiones desde otra perspectiva.
-          </p>
-          <p className="text-sm md:text-base lg:text-lg text-gray-800 pr-5">
-            Soy venezolano, médico psiquiatra dedicado a las finanzas, intentando dar explicaciones al des-orden que vivimos.
-          </p>
-        </div>
-        <div className="flex flex-1 items-center justify-center mx-6 w-full md:w-auto">
-          <CryptoBox />
-        </div>
+  <div>
+    <div className="flex flex-col lg:flex-row py-8 justify-center items-c">
+      <div className="lg:w-2/3 w-full lg:justify-start justify-center lg:px-8 px-8">
+        <p className="text-2xl md:text-4xl lg:text-6xl font-bold text-left mb-8">
+          Economía, política e inversiones desde otra perspectiva.
+        </p>
+        <p className="text-sm md:text-base lg:text-lg text-gray-800 pr-5 mb-4">
+          Soy venezolano, médico psiquiatra dedicado a las finanzas, intentando dar explicaciones al des-orden que vivimos.
+        </p>
+      </div>
+      <div className="lg:w-1/3 w-full justify-center items-center">
+        <CotizacionesCarousel />
       </div>
     </div>
+    {/* <CotizacionesCarousel /> */}
     {!isHome && (
       <div className="flex items-center justify-center">
         <div className="relative">

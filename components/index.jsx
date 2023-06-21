@@ -17,6 +17,7 @@ export { default as CategoriesBar } from './CategoriesBar';
 export { default as Pagination } from './Pagination';
 export { default as NewsLetterBanner } from './NewsLetterBanner';
 export { default as CryptoBox } from './CryptoBox';
+export { default as CotizacionesCarousel } from './CotizacionesCarousel';
 export { default as PostBanner } from './PostBanner';
 export { default as TwoColumns } from './TwoColumns';
 export { default as TweetsCarousel } from './TweetsCarousel';
