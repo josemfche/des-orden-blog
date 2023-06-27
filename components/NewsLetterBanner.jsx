@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
+import Modal from 'react-modal';
 import SubscribeModal from './SubscribeModal';
 
 const NewsletterBanner = () => {
@@ -32,11 +34,23 @@ const NewsletterBanner = () => {
         </div>
       </div>
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50">
-          <div className="relative bg-white border border-gray-300 shadow-lg rounded-lg w-96 p-4">
-            <SubscribeModal closeModal={closeModal} />
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-80">
+          <div className="relative shadow-lg rounded-lg w-11/12 h-1/2 bg-opacity-80">
+            <Modal
+              isOpen
+              onRequestClose={closeModal}
+              className="Modal"
+            >
+              <SubscribeModal closeModal={closeModal} />
+              <button
+                type="button"
+                onClick={closeModal}
+                className="text-gray-500 mt-2 underline hover:text-gray-700 focus:outline-none"
+              />
+            </Modal>
           </div>
         </div>
+
       )}
     </div>
   );

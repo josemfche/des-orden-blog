@@ -40,7 +40,7 @@ const TweetsCarousel = ({ tweetIds }) => {
       itemClass="carousel-item-padding-40-px"
     >
       {tweetIds.map((tweetId) => (
-        <div className="px-3">
+        <div className="px-3" key={tweetId}>
           <TweetEmbed tweetId={tweetId} options={{}} className="h-full" />
         </div>
       ))}

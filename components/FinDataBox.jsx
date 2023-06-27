@@ -5,9 +5,9 @@ const FinDataBox = ({ finData, loading }) => {
     return <div>Loading...</div>;
   }
 
-  const iconsURLMap = {
+  /*   const iconsURLMap = {
     'NASDAQ:NDAQ': '/nasdaq-big.svg',
-  };
+  }; */
 
   return (
     <div className="bg-white w-full rounded-lg py-4 px-8">
@@ -19,7 +19,8 @@ const FinDataBox = ({ finData, loading }) => {
           <div key={stock.id} className="flex items-center my-2">
             <div className="mr-2 rounded-lg p-2 shadow-2xl flex justify-center items-center">
               <Image
-                src={iconsURLMap[stock.msh_id]}
+                // src={iconsURLMap[stock.msh_id]}
+                src="/nasdaq-big.svg"
                 alt={stock.name}
                 width={50}
                 height={50}

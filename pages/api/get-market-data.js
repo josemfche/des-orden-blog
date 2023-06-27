@@ -47,7 +47,7 @@ export default async function handler(req, res) {
     res.status(500).send('Error fetching data from CoinMarketCap API');
   }
   try {
-    tableData.stocks = await getStocksData(['NASDAQ:NDAQ', 'NASDAQ:NDAQ', 'NASDAQ:NDAQ', 'NASDAQ:NDAQ']);
+    tableData.stocks = await getStocksData(['^IXIC', '^DJI', '^GSPC', '^BVSP']);
   } catch (error) {
     console.error(error);
     res.status(500).send('Error fetching data from markets sh API');
