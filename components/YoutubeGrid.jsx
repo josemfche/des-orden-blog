@@ -51,8 +51,9 @@ const YoutubeGrid = () => {
             params: {
               key: process.env.NEXT_PUBLIC_YT_KEY,
               part: 'snippet',
+              order: 'date',
               channelId: process.env.NEXT_PUBLIC_CHANNEL_ID,
-              maxResults: 10,
+              maxResults: 100,
             },
           },
         );
@@ -77,8 +78,10 @@ const YoutubeGrid = () => {
 
   if (errorLoading) return (<h1>Error loading videos</h1>);
 
+  console.log(currentVideos);
+
   return (
-    <div className="container mx-auto px-4 justify-center flex flex-col items-center">
+    <div className="container mx-auto md:px-4 justify-center flex flex-col items-center">
       {/* Refactor to render a series of elements */}
       <CategoriesBar
         classNames="mb-4"
@@ -86,13 +89,13 @@ const YoutubeGrid = () => {
         seasonSlug={seasonSlug}
         setCurrentPage={setCurrentPage}
       />
-      <div className="flex flex-wrap mx-4">
+      <div className="flex flex-wrap lg:mx-4">
         {currentVideos.map((video) => {
           const { videoId } = video.id;
           return (
             <div
               key={videoId}
-              className="w-full sm:w-1/2 md:w-1/3 px-4 mb-8"
+              className="w-full sm:w-1/2 md:w-1/3 md:px-4 mb-8"
             >
               <div className="max-w-sm rounded overflow-hidden border border-zinc-800 bg-white">
                 <div
@@ -106,11 +109,11 @@ const YoutubeGrid = () => {
                   />
                 </div>
                 <div className="px-6 py-4">
-                  <div className="font-bold text-xl mb-2 line-clamp-2">
-                    {video.snippet.title}
+                  <div className="font-normal text-xl mb-2 line-clamp-2">
+                    <h5 className="text-[#111]">{video.snippet.title}</h5>
                   </div>
-                  <p className="text-gray-700 text-base line-clamp-3">
-                    {video.snippet.description}
+                  <p className="text-gray-600 text-base line-clamp-3">
+                    {video.snippet.description === '' ? 'Descripción de prueba, colocar descripción al video' : video.snippet.description}
                   </p>
                 </div>
               </div>

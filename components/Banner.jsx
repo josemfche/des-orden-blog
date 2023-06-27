@@ -23,7 +23,7 @@ const Hero = ({ bannerText, isSearch, imageUrl }) => (
     <div className="px-6 lg:px-16 py-10 rounded-3xl">
       <div className="flex flex-col lg:flex-row justify-center items-center gap-5">
         <div className="flex flex-row gap-5 lg:gap-10">
-          <div className="flex flex-col gap-5 lg:gap-10">
+          <div className="flex flex-col gap-5 lg:gap-10 text-secondthegray">
             <p className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl text-center">
               {bannerText?.title}
             </p>

@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         salmon: '#EB524D',
         thegray: '#404040',
+        secondthegray: '#525252',
       },
     },
     container: {

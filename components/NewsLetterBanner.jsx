@@ -15,22 +15,23 @@ const NewsletterBanner = () => {
   };
 
   return (
-    <div className="bg-white border border-gray-300 shadow-lg mx-6 my-12 p-4 rounded-lg py-12">
-      <div className="flex flex-col md:flex-row justify-around items-center py-6">
-        <div className="lg:mb-0 flex flex-col items-center justify-center lg:justify-start lg:items-left lg:text-left text-center">
-          <div className="text-2xl lg:text-4xl font-normal mb-4">Únete a nuestro newsletter y mantente informado con contenido exclusivo</div>
-          <div className="w-full lg:text-xl mb-2 lg:text-left">Forma parte de nuestro newsletter</div>
+    <div className="flex flew-row bg-white border border-gray-300 shadow-lg mx-6 my-12 rounded-lg md:mx-32 rounded-2xl">
+      <div className="lg:w-1/2 lg:flex hidden rounded-l-2xl">
+        <img className="h-full w-full rounded-l-2xl" src="/banner.jpg" alt="banner" />
+      </div>
+      <div className="lg:w-1/2 flex flex-col justify-around items-center p-6">
+        <div className="lg:mb-0 mb-2 flex flex-col items-center justify-center lg:justify-start lg:items-left text-center">
+          <div className="text-secondthegray text-2xl lg:text-5xl font-normal mb-4 md:px-8 px-4">Únete a nuestro newsletter y mantente informado con contenido exclusivo</div>
+          <div className="text-gray-500 w-full lg:text-xl mb-2 text-center">Forma parte de nuestro newsletter</div>
         </div>
-        <div className="flex flex-col justify-center">
-          <div className="flex justify-center">
-            <button
-              type="button"
-              className="font-bold text-xl h-12 rounded-lg bg-gray-600 text-white px-4 py-1 hover:bg-thegray focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onClick={openModal}
-            >
-              Suscribete
-            </button>
-          </div>
+        <div className="w-full flex flex-col justify-center items-center">
+          <button
+            type="button"
+            className="w-3/5 font-bold text-xl h-12 rounded-lg bg-gray-600 text-white px-4 py-1 hover:bg-thegray focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onClick={openModal}
+          >
+            Suscribete
+          </button>
         </div>
       </div>
       {isModalOpen && (
@@ -50,7 +51,6 @@ const NewsletterBanner = () => {
             </Modal>
           </div>
         </div>
-
       )}
     </div>
   );
