@@ -1,44 +1,48 @@
 import Image from 'next/image';
-import { faSquareArrowUpRight, faSquareArrowDownRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { grpahCMSImageLoader } from '../util';
 
 const CryptoBox = ({ cryptoData, loading }) => {
   if (loading || cryptoData === null) {
-    return <div>Loading...</div>;
+    return <div>{grpahCMSImageLoader}</div>;
   }
 
   return (
-    <div className="bg-white rounded-lg p-4">
+    <div className="bg-white w-full rounded-lg py-4 px-8">
       {cryptoData.map((coin) => {
         const isPositive24h = coin.quote.USD.percent_change_24h >= 0;
-        /* const isPositive1h = coin.quote.USD.percent_change_1h >= 0; */
+        const isPositive1h = coin.quote.USD.percent_change_1h >= 0;
 
         return (
-          <div key={coin.id} className="flex items-center my-2">
-            <div className="mr-2 rounded-lg p-2 shadow-2xl flex justify-center items-center">
+          <div key={coin.id} className="flex items-center my-2 py-2">
+            <div className="mr-6 rounded-full shadow-2xl flex justify-center items-center">
               <Image
                 src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`}
                 alt={coin.name}
-                width={50}
-                height={50}
+                width={64}
+                height={64}
               />
             </div>
             <div className="flex-1 flex-col">
               <div className="flex font-extrabold">{coin.name}</div>
               <div className="flex">{coin.symbol}</div>
             </div>
-            <div className="text-sm flex flex-col">
+            <div className="text-sm flex flex-col items-end">
               <span
                 className={`mr-1 font-extrabold text-xl ${' '}`}
               >
                 ${coin.quote.USD.price.toFixed(2)}
               </span>
               <span
-                className={`${isPositive24h ? 'bg-green-500' : 'bg-red-500'} text-white font-bold rounded-lg text-center px-2`}
+                className={`${isPositive24h ? 'bg-green-500' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}
               >
-                {isPositive24h
-                  ? <FontAwesomeIcon icon={faSquareArrowUpRight} className="text-white" />
-                  : <FontAwesomeIcon icon={faSquareArrowDownRight} className="text-white" />}
+                {isPositive1h
+                  ? <FontAwesomeIcon icon={faArrowDown} className="text-white mx-1" />
+                  : <></>}
+                {!isPositive1h
+                  ? <FontAwesomeIcon icon={faArrowUp} className="text-white mx-1" />
+                  : <></>}
                 {` ${coin.quote.USD.percent_change_24h.toFixed(2)}`}%
               </span>
             </div>

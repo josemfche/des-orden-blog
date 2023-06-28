@@ -41,7 +41,7 @@ export default function Home({ posts }) {
   };
 
   return (
-    <div className="px-1 mb-8 md:mx-24">
+    <div className="px-1 mb-8 mx-2 sm:mx-24">
       <BannerWithImage isHome />
       <CategoriesBar setCategorySlug={setCategorySlug} setCurrentPage={setCurrentPage} />
       <div className="flex flex-col md:flex-row gap-4">

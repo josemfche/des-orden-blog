@@ -8,13 +8,13 @@ const PostBanner = ({ post }) => (
   <div className="flex flex-col xl:flex-row lg:flex-row sm:flex-col mb-10">
     <div className="relative overflow-hidden lg:w-3/5 md:w-full h-100 p-40">
       <Image
-        className="border rounded-l-lg"
+        className="border xl:rounded-l-lg md:rounded-t-lg"
         src={post.featuredImage.url}
         layout="fill"
         alt=""
       />
     </div>
-    <div className="flex flex-col justify-between w-full lg:h-fit lg:w-2/5 bg-white border py-32 rounded-r-lg lg:px-6">
+    <div className="flex flex-col justify-between w-full lg:h-fit lg:w-2/5 bg-white border md:py-32 py-8 xl:rounded-r-lg md:rounded-b-lg lg:px-6 px-8">
       <div className="flex mb-4">
         <div className="text-center text-gray-700 font-normal justify-center">
           <ul className="flex justify-left flex-wrap">
@@ -44,7 +44,7 @@ const PostBanner = ({ post }) => (
       </p>
       <div className="text-left flex lg:justify-start md:justify-left">
         <Link href={`/post/${post.slug}`}>
-          <span className="md:justify-center transition duration-500 ease transform hover:-translate-y-1 bg-white text-black border text-lg font-medium rounded-md w-4/3 px-8 py-3 cursor-pointer">Leer más</span>
+          <span className="md:justify-center transition duration-500 border-black ease transform hover:-translate-y-1 bg-white text-black border text-lg font-medium rounded-md w-4/3 px-8 py-3 cursor-pointer">Leer más</span>
         </Link>
       </div>
     </div>

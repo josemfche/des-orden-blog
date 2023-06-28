@@ -1,10 +1,11 @@
 import Image from 'next/image';
-import { faSquareArrowUpRight, faSquareArrowDownRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { grpahCMSImageLoader } from '../util';
 
 const FinDataBox = ({ finData, loading }) => {
   if (loading || finData === null) {
-    return <div>Loading...</div>;
+    return <div>{grpahCMSImageLoader}</div>;
   }
 
   /*   const iconsURLMap = {
@@ -18,8 +19,8 @@ const FinDataBox = ({ finData, loading }) => {
         const isPositive1h = (stock?.last_close - stock?.last_price) >= 0;
 
         return (
-          <div key={stock.id} className="flex items-center my-2">
-            <div className="mr-2 rounded-lg p-2 shadow-2xl flex justify-center items-center">
+          <div key={stock.id} className="flex items-center my-2 py-2">
+            <div className="mr-6 rounded-full shadow-2xl flex justify-center items-center">
               <Image
                 // src={iconsURLMap[stock.msh_id]}
                 src="/nasdaq-big.svg"
@@ -42,10 +43,10 @@ const FinDataBox = ({ finData, loading }) => {
                 className={`${isPositive24h ? 'bg-green-500' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}
               >
                 {isPositive1h
-                  ? <FontAwesomeIcon icon={faSquareArrowUpRight} className="text-white" />
+                  ? <FontAwesomeIcon icon={faArrowDown} className="text-white mx-1" />
                   : <></>}
                 {!isPositive1h
-                  ? <FontAwesomeIcon icon={faSquareArrowDownRight} className="text-white" />
+                  ? <FontAwesomeIcon icon={faArrowUp} className="text-white mx-1" />
                   : <></>}
                 {` ${stock?.change_perc_today.toFixed(2)}`}%
               </span>

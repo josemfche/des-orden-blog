@@ -69,6 +69,7 @@ const CotizacionesCarousel = () => {
       removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}
       dotListClass="custom-dot-list-style"
       itemClass=""
+      className="shadow-xl rounded-lg xl:w-4/5 lg:w-full"
     >
       <CryptoBox cryptoData={cryptoData} loading={loading} />
       <FinDataBox finData={stocksData} loading={loading} />
