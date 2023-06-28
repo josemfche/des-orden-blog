@@ -18,6 +18,7 @@ const CotizacionesCarousel = () => {
         );
         setCryptoData(res.data.crypto);
         setStocksData(res.data.stocks);
+        console.log(res.data);
         setLoading(false);
         console.error(res);
       } catch (error) {
@@ -59,7 +60,7 @@ const CotizacionesCarousel = () => {
       ssr={false}
       infinite
       autoPlay
-      autoPlaySpeed={5000}
+      autoPlaySpeed={15000}
       keyBoardControl
       showDots
       customTransition="all .5s ease-in-out"

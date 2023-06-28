@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { faSquareArrowUpRight, faSquareArrowDownRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CryptoBox = ({ cryptoData, loading }) => {
   if (loading || cryptoData === null) {
@@ -9,7 +11,7 @@ const CryptoBox = ({ cryptoData, loading }) => {
     <div className="bg-white rounded-lg p-4">
       {cryptoData.map((coin) => {
         const isPositive24h = coin.quote.USD.percent_change_24h >= 0;
-        const isPositive1h = coin.quote.USD.percent_change_1h >= 0;
+        /* const isPositive1h = coin.quote.USD.percent_change_1h >= 0; */
 
         return (
           <div key={coin.id} className="flex items-center my-2">
@@ -27,16 +29,17 @@ const CryptoBox = ({ cryptoData, loading }) => {
             </div>
             <div className="text-sm flex flex-col">
               <span
-                className={`mr-1 font-extrabold text-xl ${isPositive1h ? 'text-green-500' : 'text-red-500'
-                }`}
+                className={`mr-1 font-extrabold text-xl ${' '}`}
               >
-                {coin.quote.USD.percent_change_1h.toFixed(2)}%
+                ${coin.quote.USD.price.toFixed(2)}
               </span>
               <span
-                className={`${isPositive24h ? 'text-green-500' : 'text-red-500'
-                }`}
+                className={`${isPositive24h ? 'bg-green-500' : 'bg-red-500'} text-white font-bold rounded-lg text-center px-2`}
               >
-                {coin.quote.USD.percent_change_24h.toFixed(2)}%
+                {isPositive24h
+                  ? <FontAwesomeIcon icon={faSquareArrowUpRight} className="text-white" />
+                  : <FontAwesomeIcon icon={faSquareArrowDownRight} className="text-white" />}
+                {` ${coin.quote.USD.percent_change_24h.toFixed(2)}`}%
               </span>
             </div>
           </div>

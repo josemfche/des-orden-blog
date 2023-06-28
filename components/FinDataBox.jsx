@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { faSquareArrowUpRight, faSquareArrowDownRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const FinDataBox = ({ finData, loading }) => {
   if (loading || finData === null) {
@@ -30,18 +32,22 @@ const FinDataBox = ({ finData, loading }) => {
               <div className="flex font-extrabold">{stock?.ticker}</div>
               <div className="flex">{stock?.msh_id}</div>
             </div>
-            <div className="text-sm flex flex-col">
+            <div className="text-sm flex flex-col items-end">
               <span
-                className={`mr-1 font-extrabold text-xl ${isPositive1h ? 'text-green-500' : 'text-red-500'
-                }`}
+                className={`mr-1 font-extrabold text-xl ${' '}`}
               >
-                {stock?.last_close.toFixed(2)}%
+                ${stock?.last_price.toFixed(2)}
               </span>
               <span
-                className={`${isPositive24h ? 'text-green-500' : 'text-red-500'
-                }`}
+                className={`${isPositive24h ? 'bg-green-500' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}
               >
-                {stock?.change_perc_today.toFixed(2)}%
+                {isPositive1h
+                  ? <FontAwesomeIcon icon={faSquareArrowUpRight} className="text-white" />
+                  : <></>}
+                {!isPositive1h
+                  ? <FontAwesomeIcon icon={faSquareArrowDownRight} className="text-white" />
+                  : <></>}
+                {` ${stock?.change_perc_today.toFixed(2)}`}%
               </span>
             </div>
           </div>
