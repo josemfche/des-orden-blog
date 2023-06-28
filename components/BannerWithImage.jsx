@@ -14,7 +14,7 @@ const Hero = ({ isHome }) => (
           Soy venezolano, médico psiquiatra dedicado a las finanzas, intentando dar explicaciones al des-orden que vivimos.
         </p>
       </div>
-      <div className="lg:w-1/4 w-full justify-center items-center">
+      <div className="lg:w-1/3 w-full justify-center items-center">
         <CotizacionesCarousel />
       </div>
     </div>
