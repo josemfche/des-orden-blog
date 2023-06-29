@@ -7,12 +7,12 @@ const Hero = ({ isHome }) => (
   <div>
     <div className="flex flex-col lg:flex-row py-8 justify-center items-center">
       <div className="flex flex-col lg:w-2/3 w-full lg:justify-start justify-center lg:px-8 px-8">
-        <p className="text-2xl md:text-4xl lg:text-6xl font-bold text-left mb-8">
+        <p className="text-2xl md:text-4xl lg:text-6xl text-left mb-8 text-secondthegray">
           Economía, política e inversiones desde otra perspectiva.
         </p>
-        <p className="text-sm md:text-base lg:text-lg text-gray-800 pr-5 mb-4">
+        {/*         <p className="text-sm md:text-base lg:text-lg text-gray-800 pr-5 mb-4">
           Soy venezolano, médico psiquiatra dedicado a las finanzas, intentando dar explicaciones al des-orden que vivimos.
-        </p>
+        </p> */}
       </div>
       <div className="lg:w-1/3 w-full justify-center items-center">
         <CotizacionesCarousel />

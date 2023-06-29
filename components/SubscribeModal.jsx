@@ -57,7 +57,7 @@ const SubscribeModal = () => {
   return (
     <div className="bg-red w-100 h-full">
       <div className="flex flex-row md:flex-row md:h-full rounded-lg">
-        <form className="lg:w-1/2 w-full xl:px-12 xl:px-32 lg:px-32 md:px-48 sm:px-32 px-8 py-8 flex flex-col justify-center rounded-lg" onSubmit={handleSubmit}>
+        <form className="lg:w-1/2 w-full xl:px-12 lg:px-24 md:px-32 sm:px-32 px-8 py-8 flex flex-col justify-center rounded-lg" onSubmit={handleSubmit}>
           <h1 className="text-2xl text-left w-full mb-4 font-weight-400">Subscribite al Newsletter</h1>
           <div className="mb-4">
             {/*             <label htmlFor="email" className="font-bold mr-2 text-gray-700">
@@ -123,7 +123,7 @@ const SubscribeModal = () => {
           </button> */}
         </form>
         <div className="lg:w-1/2 lg:flex hidden">
-          <img className="h-full w-full" src="/banner.jpg" alt="banner" />
+          <img className="h-full object-cover" src="/modalimg.png" alt="banner" />
         </div>
       </div>
     </div>

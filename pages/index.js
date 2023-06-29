@@ -6,14 +6,25 @@ import NewsletterBanner from '../components/NewsLetterBanner';
 
 const data = [
   {
-    image: '/iphone.webp',
-    title: 'Economía y Política',
-    description: 'Buy and sell popular digital currencies, keep track of them in the one place. Has a variety of features that make it the best place to start trading',
+    image: '/oscar-silla.png',
+    title: 'Economía, social y política',
+    // description: 'Buy and sell popular digital currencies, keep track of them in the one place. Has a variety of features that make it the best place to start trading',
+    buttonText: 'Ver mas',
+    url: '/',
   },
   {
-    image: '/iphone.webp',
-    title: 'Nuestro Podcast',
-    description: 'The Exchange supports USD, EUR, and GBP. Invest in cryptocurrency slowly over time by scheduling buys daily, weekly, or monthly.',
+    image: '/grupo-work.png',
+    title: 'Des-orden Podcast',
+    // description: 'The Exchange supports USD, EUR, and GBP. Invest in cryptocurrency slowly over time by scheduling buys daily, weekly, or monthly.',
+    buttonText: 'Ver mas',
+    url: '/podcast-videos',
+  },
+  {
+    image: '/oscar-profile.png',
+    title: 'Sobre nosotros',
+    // description: 'The Exchange supports USD, EUR, and GBP. Invest in cryptocurrency slowly over time by scheduling buys daily, weekly, or monthly.',
+    buttonText: 'Ver mas',
+    url: '/sobre-nosotros',
   },
 ];
 
@@ -82,6 +93,8 @@ export default function Home({ posts }) {
               image={item.image}
               title={item.title}
               description={item.description}
+              buttonText={item.buttonText}
+              url={item.url}
               reverse={index % 2 !== 0}
             />
           ))}

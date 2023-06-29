@@ -15,13 +15,13 @@ const NewsletterBanner = () => {
   };
 
   return (
-    <div className="flex flew-row bg-white border border-gray-300 shadow-lg mx-6 my-12 rounded-lg md:mx-32 rounded-2xl">
+    <div className="flex flew-row bg-white border border-gray-300 shadow-lg mx-6 my-12 md:mx-32 rounded-2xl">
       <div className="lg:w-1/2 lg:flex hidden rounded-l-2xl">
-        <img className="h-full w-full rounded-l-2xl" src="/banner.jpg" alt="banner" />
+        <img className="h-full w-full object-cover rounded-l-2xl" src="/newletterimg.png" alt="banner" />
       </div>
       <div className="lg:w-1/2 flex flex-col justify-around items-center p-6">
         <div className="lg:mb-0 mb-2 flex flex-col items-center justify-center lg:justify-start lg:items-left text-center">
-          <div className="text-secondthegray text-2xl lg:text-5xl font-normal mb-4 md:px-8 px-4">Únete a nuestro newsletter y mantente informado con contenido exclusivo</div>
+          <div className="text-secondthegray text-2xl lg:text-4xl font-normal mb-4 md:px-8 px-4">Únete a nuestro newsletter y mantente informado con contenido exclusivo</div>
           <div className="text-gray-500 w-full lg:text-xl mb-2 text-center">Forma parte de nuestro newsletter</div>
         </div>
         <div className="w-full flex flex-col justify-center items-center">
@@ -36,18 +36,13 @@ const NewsletterBanner = () => {
       </div>
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-80">
-          <div className="relative shadow-lg rounded-lg w-11/12 h-1/2 bg-opacity-80">
+          <div className="relative shadow-lg rounded-lg w-full h-1/2 bg-opacity-80 flex flex-row justify-center items-center">
             <Modal
               isOpen
               onRequestClose={closeModal}
-              className="Modal"
+              className="Modal flex justify-start items-center"
             >
               <SubscribeModal closeModal={closeModal} />
-              <button
-                type="button"
-                onClick={closeModal}
-                className="text-gray-500 mt-2 underline hover:text-gray-700 focus:outline-none"
-              />
             </Modal>
           </div>
         </div>
