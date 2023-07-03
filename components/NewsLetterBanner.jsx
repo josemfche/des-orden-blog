@@ -22,7 +22,7 @@ const NewsletterBanner = () => {
       <div className="lg:w-1/2 flex flex-col justify-around items-center p-6">
         <div className="lg:mb-0 mb-2 flex flex-col items-center justify-center lg:justify-start lg:items-left text-center">
           <div className="text-secondthegray text-2xl lg:text-4xl font-normal mb-4 md:px-8 px-4">Únete a nuestro newsletter y mantente informado con contenido exclusivo</div>
-          <div className="text-gray-500 w-full lg:text-xl mb-2 text-center">Forma parte de nuestro newsletter</div>
+          <div className="text-gray-500 w-full lg:text-xl mb-2 text-center pt-4">Forma parte de nuestro newsletter</div>
         </div>
         <div className="w-full flex flex-col justify-center items-center">
           <button

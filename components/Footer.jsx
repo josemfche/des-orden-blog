@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => (
   <footer className="bg-thegray">
-    <div className="container mx-auto py-12 px-6 sm:px-24 flex flex-wrap flex-col sm:flex-row border-b boder-white items-center">
+    <div className="container mx-auto py-12 px-6 sm:px-24 flex md:flex-row flex-col justify-center sm:flex-row border-b boder-white items-center">
       <div className="flex-grow sm:flex-grow-0 flex items-center justify-center sm:justify-start mb-4 sm:mb-0">
         <Link href="/">
           <div className="flex items-center cursor-pointer">
@@ -14,18 +14,18 @@ const Footer = () => (
           </div>
         </Link>
       </div>
-      <div className="flex flex-col h-full sm:flex-grow justify-center items-center">
-        <ul className="flex justify-center sm:justify-start text-white mb-8 items-center justify-center">
-          <li className="mx-5">
+      <div className="flex sm:flex-row flex-col h-full justify-center items-center">
+        <ul className="flex justify-center text-white mb-8 items-center justify-center">
+          <li className="mx-4">
             <a href="/blog">Artículos</a>
           </li>
-          <li className="mx-5">
+          <li className="mx-4">
             <a href="/podcast-videos">Podcast</a>
           </li>
-          <li className="mx-5">
+          <li className="mx-4">
             <a href="/sobre-nosotros">Sobre Nosotros</a>
           </li>
-          <li className="mx-5">
+          <li className="mx-4">
             <a href="/contacto">Contacto</a>
           </li>
         </ul>

@@ -1,6 +1,7 @@
 import TweetEmbed from 'react-tweet-embed';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Circles } from 'react-loader-spinner';
 
 const TweetsCarousel = ({ tweetIds }) => {
   const responsive = {
@@ -38,11 +39,28 @@ const TweetsCarousel = ({ tweetIds }) => {
       removeArrowOnDeviceType={['tablet', 'mobile']}
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px"
-      className="shadown-lg align-middle"
+      className="shadown-lg align-middle min-h-32"
     >
       {tweetIds.map((tweetId) => (
         <div className="px-3" key={tweetId}>
-          <TweetEmbed tweetId={tweetId} options={{ cards: 'hidden', align: 'center' }} className="" placeholder={<h1>Cargando Tweets...</h1>} />
+          <TweetEmbed
+            tweetId={tweetId}
+            options={{ cards: 'hidden', align: 'center' }}
+            className=""
+            placeholder={(
+              <div className="flex w-full justify-center">
+                <Circles
+                  height="80"
+                  width="80"
+                  radius="9"
+                  color="green"
+                  ariaLabel="loading"
+                  wrapperStyle
+                  wrapperClass
+                />
+              </div>
+)}
+          />
         </div>
       ))}
     </Carousel>

@@ -1,11 +1,21 @@
 import Image from 'next/image';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { grpahCMSImageLoader } from '../util';
+import { Audio } from 'react-loader-spinner';
 
 const FinDataBox = ({ finData, loading }) => {
   if (loading || finData === null) {
-    return <div>{grpahCMSImageLoader}</div>;
+    return (
+      <Audio
+        height="80"
+        width="80"
+        radius="9"
+        color="green"
+        ariaLabel="loading"
+        wrapperStyle
+        wrapperClass
+      />
+    );
   }
 
   /*   const iconsURLMap = {

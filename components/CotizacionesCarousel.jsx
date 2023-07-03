@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Carousel from 'react-multi-carousel';
+import { Circles } from 'react-loader-spinner';
 import CryptoBox from './CryptoBox';
 import FinDataBox from './FinDataBox';
 import 'react-multi-carousel/lib/styles.css';
@@ -31,7 +32,19 @@ const CotizacionesCarousel = () => {
   }, []);
 
   if (loading || cryptoData === null) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex w-full justify-center">
+        <Circles
+          height="80"
+          width="80"
+          radius="9"
+          color="green"
+          ariaLabel="loading"
+          wrapperStyle
+          wrapperClass
+        />
+      </div>
+    );
   }
 
   const responsive = {
@@ -71,8 +84,8 @@ const CotizacionesCarousel = () => {
       itemClass=""
       className="shadow-xl rounded-lg xl:w-4/5 lg:w-full h-full"
     >
-      <CryptoBox cryptoData={cryptoData} loading={loading} />
       <FinDataBox finData={stocksData} loading={loading} />
+      <CryptoBox cryptoData={cryptoData} loading={loading} />
     </Carousel>
   );
 };

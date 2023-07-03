@@ -1,11 +1,21 @@
 import Image from 'next/image';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { grpahCMSImageLoader } from '../util';
+import { Circles } from 'react-loader-spinner';
 
 const CryptoBox = ({ cryptoData, loading }) => {
   if (loading || cryptoData === null) {
-    return <div>{grpahCMSImageLoader}</div>;
+    return (
+      <Circles
+        height="80"
+        width="80"
+        radius="9"
+        color="green"
+        ariaLabel="loading"
+        wrapperStyle
+        wrapperClass
+      />
+    );
   }
 
   return (
