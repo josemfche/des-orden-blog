@@ -10,7 +10,7 @@ const data = [
     title: 'Economía, social y política',
     // description: 'Buy and sell popular digital currencies, keep track of them in the one place. Has a variety of features that make it the best place to start trading',
     buttonText: 'Ver mas',
-    url: '/',
+    url: '/blog',
   },
   {
     image: '/grupo-work.png',
@@ -79,12 +79,6 @@ export default function Home({ posts }) {
           />
         </div>
       </div>
-      <div className="container mx-auto py-4">
-        <h1 className="text-4xl font-bold mb-4 px-6">Latest Tweets</h1>
-        <div className="w-full px-4">
-          <TweetsCarousel tweetIds={['1656979313919393794', '1656979313919393794', '1656979313919393794']} />
-        </div>
-      </div>
       <div className="bg-transparent">
         <div className="container mx-auto px-4">
           {data.map((item, index) => (
@@ -98,6 +92,12 @@ export default function Home({ posts }) {
               reverse={index % 2 !== 0}
             />
           ))}
+        </div>
+      </div>
+      <div className="container mx-auto py-4">
+        {/* <h1 className="text-4xl font-bold mb-4 px-6">Latest Tweets</h1> */}
+        <div className="w-full px-4">
+          <TweetsCarousel tweetIds={['1664840287586271232', '1663694592833736706', '1658148915219247117', '1658092377800679425', '1648715591069442049']} />
         </div>
       </div>
       <NewsletterBanner />

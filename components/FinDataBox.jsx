@@ -13,7 +13,7 @@ const FinDataBox = ({ finData, loading }) => {
   }; */
 
   return (
-    <div className="bg-white w-full rounded-lg py-4 px-8">
+    <div className="bg-white w-full rounded-lg py-4 px-8 h-full">
       {finData.map((stock) => {
         const isPositive24h = stock?.change_perc_today >= 0;
         const isPositive1h = (stock?.last_close - stock?.last_price) >= 0;

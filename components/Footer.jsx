@@ -17,16 +17,16 @@ const Footer = () => (
       <div className="flex flex-col h-full sm:flex-grow justify-center items-center">
         <ul className="flex justify-center sm:justify-start text-white mb-8 items-center justify-center">
           <li className="mx-5">
-            <a href="/">Concept</a>
+            <a href="/blog">Artículos</a>
           </li>
           <li className="mx-5">
-            <a href="/">Our story</a>
+            <a href="/podcast-videos">Podcast</a>
           </li>
           <li className="mx-5">
-            <a href="/">Careers</a>
+            <a href="/sobre-nosotros">Sobre Nosotros</a>
           </li>
           <li className="mx-5">
-            <a href="/">Contact us</a>
+            <a href="/contacto">Contacto</a>
           </li>
         </ul>
       </div>
@@ -53,13 +53,13 @@ const Footer = () => (
     <div className="flex justify-center w-full">
       <ul className="flex justify-center items-center sm:justify-start text-white h-32">
         <li className="mx-2">
-          <a href="/">Privacy policy</a>
+          <a href="/">Politicas de Privacidad</a>
         </li>
         <li className="mx-2">
-          <a href="/">Terms of service</a>
+          <a href="/">Terminos de Servicio</a>
         </li>
         <li className="mx-2">
-          <a href="/">Cookie settings</a>
+          <a href="/">Configuraciones de Cookies</a>
         </li>
       </ul>
     </div>

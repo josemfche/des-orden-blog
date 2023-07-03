@@ -9,7 +9,7 @@ const CryptoBox = ({ cryptoData, loading }) => {
   }
 
   return (
-    <div className="bg-white w-full rounded-lg py-4 px-8">
+    <div className="bg-white w-full rounded-lg py-4 px-8 h-full">
       {cryptoData.map((coin) => {
         const isPositive24h = coin.quote.USD.percent_change_24h >= 0;
         const isPositive1h = coin.quote.USD.percent_change_1h >= 0;

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
 
@@ -8,7 +9,7 @@ const TwoColumnImageAndText = ({ image, title, description, reverse, url, button
   const content = (
     <>
       <div className={imageColumnClasses}>
-        <img src={image} alt={title} className="w-full h-full object-cover object-center" />
+        <img src={image} alt={title} className="w-full h-full object-cover object-center rounded-xl" />
       </div>
       <div className={textColumnClasses}>
         <h2 className="text-2xl lg:text-4xl text-secondthegray mb-4">{title}</h2>
@@ -18,8 +19,10 @@ const TwoColumnImageAndText = ({ image, title, description, reverse, url, button
         <div className="">
           {
           url && (
-          <Link className="border-red-900 w-1/2 text-red-900 font-bold" href={url}>
-            {buttonText}
+          <Link href={url}>
+            <a className="w-1/2 font-bold bg-secondthegray px-4 py-2 rounded-lg text-white">
+              {buttonText}
+            </a>
           </Link>
           )
         }

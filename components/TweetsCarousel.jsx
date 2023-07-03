@@ -29,7 +29,7 @@ const TweetsCarousel = ({ tweetIds }) => {
       ssr={false}
       infinite
       autoPlay
-      autoPlaySpeed={3000}
+      autoPlaySpeed={10000}
       keyBoardControl
       showDots
       customTransition="all .5s ease-in-out"
@@ -38,10 +38,11 @@ const TweetsCarousel = ({ tweetIds }) => {
       removeArrowOnDeviceType={['tablet', 'mobile']}
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px"
+      className="shadown-lg align-middle"
     >
       {tweetIds.map((tweetId) => (
         <div className="px-3" key={tweetId}>
-          <TweetEmbed tweetId={tweetId} options={{}} className="h-full" />
+          <TweetEmbed tweetId={tweetId} options={{ cards: 'hidden', align: 'center' }} className="" placeholder={<h1>Cargando Tweets...</h1>} />
         </div>
       ))}
     </Carousel>

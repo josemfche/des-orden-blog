@@ -8,13 +8,13 @@ const PostBanner = ({ post }) => (
   <div className="flex flex-col xl:flex-row lg:flex-row sm:flex-col mb-10">
     <div className="relative overflow-hidden lg:w-3/5 md:w-full h-100 p-40">
       <Image
-        className="border xl:rounded-l-lg md:rounded-t-lg"
+        className="border lg:rounded-l-lg md:rounded-t-lg"
         src={post.featuredImage.url}
         layout="fill"
         alt=""
       />
     </div>
-    <div className="flex flex-col justify-between w-full lg:h-fit lg:w-2/5 bg-white border md:py-32 py-8 xl:rounded-r-lg md:rounded-b-lg lg:px-6 px-8">
+    <div className="flex flex-col justify-between w-full lg:h-fit lg:w-2/5 bg-white border md:py-32 py-8 xl:rounded-r-lg lg:px-6 px-8">
       <div className="flex mb-4">
         <div className="text-center text-gray-700 font-normal justify-center">
           <ul className="flex justify-left flex-wrap">

@@ -8,7 +8,7 @@ function SobreNosotros({ authors }) {
   });
 
   const bannerText = {
-    title: 'Quienes somos',
+    title: '- Página en construcción -',
     subTitle: 'Blog dedicado al estudio de las finanzas, la economia y la politica. Un espacio donde hablaremos sobre pasión, poder y dinero en Venezuela y en toda la región. Temas y elementos que mueven al mundo.',
   };
   const bannerText1 = {
@@ -63,6 +63,12 @@ function SobreNosotros({ authors }) {
     // Add more contacts as needed
   ];
   return (
+    <div className="container flex flex-col justify-center items-center text-center min-h-screen">
+      <h1 className="text-9xl text-secondthegray">404</h1>
+      <h2 className="text-secondthegray">Página no encontrada</h2>
+    </div>
+  );
+/*   return (
     <div className="container">
       <Banner bannerText={bannerText} isSearch={false} />
       <div className="flex flex-wrap justify-center mb-8">
@@ -80,7 +86,7 @@ function SobreNosotros({ authors }) {
       <Banner bannerText={bannerText1} isSearch={false} imageUrl="/banner.jpg" />
       <PostWidgetHorizontal />
     </div>
-  );
+  ); */
 }
 
 export default SobreNosotros;

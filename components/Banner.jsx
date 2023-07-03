@@ -14,7 +14,7 @@ const Hero = ({ bannerText, isSearch, imageUrl }) => (
             alt="Banner Image"
             layout="fill"
             objectFit="cover"
-            // className="rounded-xl"
+            className="rounded-xl"
             placeholder="empty"
           />
         </div>
