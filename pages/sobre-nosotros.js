@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 import React, { useEffect } from 'react';
-import { Banner, ContactCard, PostWidgetHorizontal } from '../components';
+/* import { Banner, ContactCard, PostWidgetHorizontal } from '../components'; */
 import { getAuthors, getPosts } from '../services';
 
 function SobreNosotros({ authors }) {
@@ -7,7 +8,7 @@ function SobreNosotros({ authors }) {
     console.log(authors);
   });
 
-  const bannerText = {
+  /*   const bannerText = {
     title: '- Página en construcción -',
     subTitle: 'Blog dedicado al estudio de las finanzas, la economia y la politica. Un espacio donde hablaremos sobre pasión, poder y dinero en Venezuela y en toda la región. Temas y elementos que mueven al mundo.',
   };
@@ -61,7 +62,7 @@ function SobreNosotros({ authors }) {
       description: 'Results-driven marketer with expertise in digital marketing strategies.',
     },
     // Add more contacts as needed
-  ];
+  ]; */
   return (
     <div className="container flex flex-col justify-center items-center text-center min-h-screen">
       <h1 className="text-9xl text-secondthegray">404</h1>
