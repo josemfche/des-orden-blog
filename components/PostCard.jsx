@@ -7,12 +7,12 @@ import Link from 'next/link';
 /* import { grpahCMSImageLoader } from '../util'; */
 
 const PostCard = ({ post }) => (
-  <div>
+  <div className="h-3/5">
     <div className="relative overflow-hidden pb-80">
       <Image src={post.featuredImage.url} layout="fill" alt="" className="object-top absolute h-80 w-full object-cover border rounded-t-lg" />
     </div>
-    <div className="bg-white border rounded-b-lg p-0 lg:p-6 p-6 pb-12 mb-8 h-600">
-      <div className="block lg:flex text-left items-left justify-left mb-4 w-full">
+    <div className="flex flex-col h-full bg-white border rounded-b-lg p-0 lg:p-6 p-6 pb-12 mb-8 h-600">
+      <div className="lg:flex text-left items-left justify-left mb-4 w-full">
         {/*       <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center">
         <Image
           unoptimized
@@ -53,7 +53,7 @@ const PostCard = ({ post }) => (
       <p style={{ minHeight: '100px' }} className="text-left text-md text-gray-700 font-normal mb-4 text-ellipsis overflow-hidden">
         {post.excerpt}
       </p>
-      <div className="text-left">
+      <div className="text-left flex-col justify-self-end">
         <Link href={`/post/${post.slug}`}>
           <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-white text-black border border-black text-lg font-medium rounded-md w-4/3 px-8 py-3 cursor-pointer">{'Leer más  >' }</span>
         </Link>

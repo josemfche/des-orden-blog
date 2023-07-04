@@ -32,7 +32,7 @@ const CategoriesBar = ({ setCategorySlug, setCurrentPage, classNames }) => {
             } `}
             onClick={() => handleCategoryClick({ name: 'all', slug: 'all' })}
           >
-            View all
+            Ver todos
           </button>
           {categories.map((category) => (
             <button

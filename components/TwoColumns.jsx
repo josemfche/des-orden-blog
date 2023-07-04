@@ -9,7 +9,7 @@ const TwoColumnImageAndText = ({ image, title, description, reverse, url, button
         <img src={image} alt={title} className="w-full h-full object-cover object-center rounded-xl" />
       </div>
       <div className="flex flex-col w-full md:w-1/2 lg:w-7/12 px-12 text-center items-center justify-center">
-        <h2 className="text-2xl lg:text-4xl text-secondthegray mb-4">{title}</h2>
+        <h2 className="text-2xl lg:text-7xl text-secondthegray mb-8">{title}</h2>
         {
           description && <p className="text-gray-700 leading-relaxed mb-6">{description}</p>
         }

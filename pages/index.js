@@ -38,7 +38,7 @@ export default function Home({ posts }) {
       (category) => category.slug === categorySlug,
     ));
 
-  const postsPerPage = filteredPosts.length <= 6 ? filteredPosts.length : 6;
+  const postsPerPage = filteredPosts.length <= 6 ? filteredPosts.length : 7;
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -56,7 +56,7 @@ export default function Home({ posts }) {
       <BannerWithImage isHome />
       <CategoriesBar setCategorySlug={setCategorySlug} setCurrentPage={setCurrentPage} />
       <div className="flex flex-col md:flex-row gap-4">
-        <div className="flex flex-wrap w-full gap-3 mb-8 justify-center">
+        <div className="flex flex-wrap w-full gap-3 mb-12 justify-center">
           {currentPosts.map((post, index) => {
             if (index === 0) {
               return (
@@ -66,7 +66,7 @@ export default function Home({ posts }) {
               );
             }
             return (
-              <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol px-3">
+              <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol px-3 mb-4">
                 <PostCard post={post.node} />
               </div>
             );

@@ -36,7 +36,7 @@ const TweetsCarousel = ({ tweetIds }) => {
       customTransition="all .5s ease-in-out"
       transitionDuration={500}
       containerClass="carousel-container"
-      removeArrowOnDeviceType={['tablet', 'mobile']}
+      removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px"
       className="shadown-lg align-middle min-h-32"
