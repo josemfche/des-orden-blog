@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown, faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Audio } from 'react-loader-spinner';
 
@@ -31,13 +31,14 @@ const FinDataBox = ({ finData, loading }) => {
         return (
           <div key={stock.id} className="flex items-center my-2 py-2">
             <div className="mr-6 rounded-full shadow-2xl flex justify-center items-center">
-              <Image
+              {/* <Image
                 // src={iconsURLMap[stock.msh_id]}
                 src="/nasdaq-big.svg"
                 alt={stock.name}
                 width={50}
                 height={50}
-              />
+              /> */}
+              <FontAwesomeIcon icon={faChartSimple} className="text-black text-3xl mx-1" />
             </div>
             <div className="flex-1 flex-col">
               <div className="flex font-extrabold">{stock?.ticker}</div>
