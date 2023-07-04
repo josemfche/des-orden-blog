@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* import Image from 'next/image'; */
 import { faArrowUp, faArrowDown, faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Audio } from 'react-loader-spinner';
