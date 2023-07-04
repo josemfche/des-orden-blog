@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* import Image from 'next/image'; */
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Circles } from 'react-loader-spinner';
@@ -19,20 +19,20 @@ const CryptoBox = ({ cryptoData, loading }) => {
   }
 
   return (
-    <div className="bg-white w-full rounded-lg py-4 px-8 h-full">
+    <div className="bg-white w-full rounded-lg py-4 px-8 h-full flex flex-col justify-center">
       {cryptoData.map((coin) => {
         const isPositive24h = coin.quote.USD.percent_change_24h >= 0;
         const isPositive1h = coin.quote.USD.percent_change_1h >= 0;
 
         return (
           <div key={coin.id} className="flex items-center my-2 py-2">
-            <div className="mr-6 rounded-full shadow-2xl flex justify-center items-center">
-              <Image
+            <div className="rounded-full shadow-2xl flex justify-center items-center">
+              {/*               <Image
                 src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`}
                 alt={coin.name}
                 width={64}
                 height={64}
-              />
+              /> */}
             </div>
             <div className="flex-1 flex-col">
               <div className="flex font-extrabold">{coin.name}</div>

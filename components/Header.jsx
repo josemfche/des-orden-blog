@@ -1,48 +1,96 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-
+import { faSearch, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
-const Header = () => (
-  <div className="container mx-auto px-4 sm:px-10 mb-4 pt-3 flex flex-wrap items-center lg:justify-between justify-center">
-    <div className="flex items-center mb-4 sm:mb-0">
-      <Link href="/">
-        <div className="flex items-center cursor-pointer">
-          <img src="/logo.png" alt="Logo" className="w-12 h-12 mr-2" />
-          <span className="font-bold text-2xl text-secondthegray">Des-orden</span>
+const Header = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  return (
+    <div className="container mx-auto px-4 sm:px-10 mb-4 pt-3 flex flex-wrap items-center justify-between">
+      <div className="flex items-center mb-4 sm:mb-0">
+        <Link href="/">
+          <a className="flex items-center cursor-pointer">
+            <img src="/logo.png" alt="Logo" className="w-12 h-12 mr-2" />
+            <span className="font-bold text-2xl text-secondthegray">Des-orden</span>
+          </a>
+        </Link>
+      </div>
+
+      {/* Mobile sidebar */}
+      <div className={`fixed top-0 right-0 h-full bg-white z-10 transition-transform duration-300 transform ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'} sm:hidden w-3/4 max-w-xs`}>
+        <div className="flex justify-end items-center mt-4 mx-4">
+          <FontAwesomeIcon icon={faX} className="text-black cursor-pointer text-2xl" onClick={toggleSidebar} />
         </div>
-      </Link>
-    </div>
-    <div className="flex items-center mb-4 sm:mb-0">
-      <Link href="/blog">
-        <a className="text-black font-normal cursor-pointer mr-4">Artículos</a>
-      </Link>
-      <Link href="/podcast-videos">
-        <a className="text-black font-normal cursor-pointer mr-4">Podcast</a>
-      </Link>
-      <Link href="/sobre-nosotros">
-        <a className="text-black font-normal cursor-pointer mr-4">Sobre nosotros</a>
-      </Link>
-      <Link href="/contacto">
-        <a className="text-black font-normal cursor-pointer">Contacto</a>
-      </Link>
-    </div>
-    <div className="flex items-center justify-center">
-      <div className="relative">
-        <input
-          type="text"
-          placeholder="Search"
-          className="searchInputHome text-black bg-gray-100 py-2 pl-4 pr-12 border border-gray-300 rounded-sm
-            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        />
-        <div className="absolute inset-y-0 right-0 flex items-center mr-3 pointer-events-none">
-          <FontAwesomeIcon icon={faSearch} className="text-gray-400" />
+        <div className="flex flex-col items-center mt-8">
+          <Link href="/blog">
+            <a className="text-black font-normal cursor-pointer mb-4">Artículos</a>
+          </Link>
+          <Link href="/podcast-videos">
+            <a className="text-black font-normal cursor-pointer mb-4">Podcast</a>
+          </Link>
+          <Link href="/sobre-nosotros">
+            <a className="text-black font-normal cursor-pointer mb-4">Sobre nosotros</a>
+          </Link>
+          <Link href="/contacto">
+            <a className="text-black font-normal cursor-pointer">Contacto</a>
+          </Link>
+        </div>
+        <div className="absolute left-0 right-0 w-full py-4 px-4">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              className="searchInputHome text-black bg-gray-100 py-2 pl-4 pr-12 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+            <div className="absolute inset-y-0 right-8 flex items-center pointer-events-none">
+              <FontAwesomeIcon icon={faSearch} className="text-gray-400" />
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Desktop navigation */}
+      <div className="hidden sm:flex items-center mb-4 sm:mb-0">
+        <Link href="/blog">
+          <a className="text-black font-normal cursor-pointer mr-4">Artículos</a>
+        </Link>
+        <Link href="/podcast-videos">
+          <a className="text-black font-normal cursor-pointer mr-4">Podcast</a>
+        </Link>
+        <Link href="/sobre-nosotros">
+          <a className="text-black font-normal cursor-pointer mr-4">Sobre nosotros</a>
+        </Link>
+        <Link href="/contacto">
+          <a className="text-black font-normal cursor-pointer mr-4">Contacto</a>
+        </Link>
+      </div>
+
+      {/* Search input */}
+      <div className="hidden sm:block">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search"
+            className="searchInputHome text-black bg-gray-100 py-2 pl-4 pr-12 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <div className="absolute inset-y-0 right-0 flex items-center mr-3 pointer-events-none">
+            <FontAwesomeIcon icon={faSearch} className="text-gray-400" />
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile menu toggle */}
+      <div className="sm:hidden absolute top-0 right-0 mt-4 mr-4">
+        <FontAwesomeIcon icon={faBars} className="text-black cursor-pointer text-2xl" onClick={toggleSidebar} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Header;

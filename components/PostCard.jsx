@@ -7,7 +7,7 @@ import Link from 'next/link';
 /* import { grpahCMSImageLoader } from '../util'; */
 
 const PostCard = ({ post }) => (
-  <div className="h-3/5">
+  <div className="h-2/4">
     <div className="relative overflow-hidden pb-80">
       <Image src={post.featuredImage.url} layout="fill" alt="" className="object-top absolute h-80 w-full object-cover border rounded-t-lg" />
     </div>
@@ -46,7 +46,7 @@ const PostCard = ({ post }) => (
         </div>
       </div>
       <div style={{ minHeight: '60px' }} className="mb-1">
-        <h1 className="mb-2transition duration-700 text-left cursor-pointer hover:text-thegray text-2xl font-normal">
+        <h1 className="mb-2transition duration-700 text-left cursor-pointer hover:text-thegray text-2xl font-normal truncate">
           <Link href={`/post/${post.slug}`}>{post.title}</Link>
         </h1>
       </div>
