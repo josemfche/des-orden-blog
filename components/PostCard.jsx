@@ -11,7 +11,7 @@ const PostCard = ({ post }) => (
     <div className="relative overflow-hidden pb-80">
       <Image src={post.featuredImage.url} layout="fill" alt="" className="object-top absolute h-80 w-full object-cover border rounded-t-lg" />
     </div>
-    <div className="flex flex-col h-full bg-white border rounded-b-lg p-0 lg:p-6 p-6 pb-12 mb-8 h-600">
+    <div className="flex flex-col h-full bg-white border rounded-b-lg p-0 lg:p-6 md:p-6 pb-12 mb-8 h-600">
       <div className="lg:flex text-left items-left justify-left mb-4 w-full">
         {/*       <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center">
         <Image
