@@ -5,7 +5,7 @@ import { getCategories } from '../services';
 
 const CategoriesBar = ({ setCategorySlug, setCurrentPage, classNames }) => {
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState({ slug: 'all' });
 
   useEffect(() => {
     getCategories().then((newCategories) => {

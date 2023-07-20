@@ -60,7 +60,7 @@ export default function Home({ posts }) {
           {currentPosts.map((post, index) => {
             if (index === 0) {
               return (
-                <div key={post.node.title} className="w-full md:w-full lg:w-full px-3">
+                <div key={post.node.title} className="w-full md:w-full lg:w-full px-6">
                   <PostBanner post={post.node} />
                 </div>
               );

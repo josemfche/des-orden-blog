@@ -29,7 +29,7 @@ const PostWidgetHorizontal = ({ categories, slug }) => {
 
       <div className="flex lg:flex-row flex-col">
         {relatedPosts.map((post, index) => (
-          <div className="lg:w-1/3 w-full px-2 min-h-600">
+          <div key={`${post.slug}index`} className="lg:w-1/3 w-full px-2 min-h-600">
             <PostCard key={index} post={post} />
           </div>
         ))}

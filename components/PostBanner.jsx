@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const PostBanner = ({ post }) => (
   <div className="flex flex-col xl:flex-row lg:flex-row sm:flex-col mb-10">
-    <div className="relative overflow-hidden lg:w-3/5 md:w-full h-100 p-40">
+    <div className="relative overflow-hidden lg:w-7/12 md:w-full h-100 p-40">
       <Image
         className="border lg:rounded-l-lg lg:rounded-tr-none md:rounded-t-lg"
         src={post.featuredImage.url}
