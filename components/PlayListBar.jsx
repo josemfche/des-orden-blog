@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 /* import Link from 'next/link'; */
 
 const PlayListBar = ({ setCurrentPage, classNames, itemslist }) => {
-  const [seasons, setseasons] = useState([]);
   const [selectedSeason, setSelectedSeason] = useState({ slug: 'all' });
-
-  useEffect(() => {
-    setseasons(itemslist);
-  }, []);
 
   const handleSeasonClick = (Season) => {
     setSelectedSeason(Season);
@@ -29,17 +24,17 @@ const PlayListBar = ({ setCurrentPage, classNames, itemslist }) => {
           >
             Ver todos
           </button>
-          {seasons.map((Season) => (
+          {itemslist.map((season) => (
             <button
               type="button"
-              key={Season.etag}
-              className={`buttonBar px-4 py-2 rounded-md font-normal ${selectedSeason?.etag === Season.etag
+              key={season.etag}
+              className={`buttonBar px-4 py-2 rounded-md font-normal ${selectedSeason?.etag === season.etag
                 ? 'bg-red-500 text-white'
                 : 'text-black-800'
               } `}
-              onClick={() => handleSeasonClick(Season)}
+              onClick={() => handleSeasonClick(season)}
             >
-              {Season.snippet.title}
+              {season.snippet.title}
             </button>
           ))}
         </div>

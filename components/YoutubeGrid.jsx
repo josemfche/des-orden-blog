@@ -78,7 +78,9 @@ const YoutubeGrid = () => {
         );
 
         setVideos(response.data.items.filter((video) => video.id.kind !== 'youtube#playlist'));
-        setSeasons(response.data.items.filter((video) => video.id.kind === 'youtube#playlist'));
+        let seasonsData = [];
+        seasonsData = response.data.items.filter((video) => video.id.kind === 'youtube#playlist');
+        setSeasons(seasonsData);
         console.log(response.data.items.filter((video) => video.id.kind === 'youtube#playlist'));
       } catch (error) {
         // eslint-disable-next-line no-console
@@ -100,14 +102,11 @@ const YoutubeGrid = () => {
 
   if (errorLoading) return (<h1>Error loading videos</h1>);
 
-  console.log(currentVideos);
-
   return (
     <div className="container mx-auto md:px-4 justify-center flex flex-col items-center">
       {/* Refactor to render a series of elements */}
       <PlayListBar
         classNames="mb-4"
-        setSeasons={setSeasons}
         itemslist={seasons}
         setCurrentPage={setCurrentPage}
       />
