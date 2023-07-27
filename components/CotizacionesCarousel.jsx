@@ -65,6 +65,16 @@ const CotizacionesCarousel = () => {
     },
   };
 
+  const chunkArray = (arr, chunkSize) => {
+    const chunks = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      chunks.push(arr.slice(i, i + chunkSize));
+    }
+    return chunks;
+  };
+
+  const stocksDataChunks = chunkArray(stocksData, 5);
+
   return (
     <Carousel
       responsive={responsive}
@@ -84,7 +94,7 @@ const CotizacionesCarousel = () => {
       itemClass=""
       className="shadow-xl rounded-lg xl:w-4/5 lg:w-full h-full"
     >
-      <FinDataBox finData={stocksData} loading={loading} />
+      {stocksDataChunks.map((chunk) => <FinDataBox finData={chunk} loading={loading} />)}
       <CryptoBox cryptoData={cryptoData} loading={loading} />
     </Carousel>
   );

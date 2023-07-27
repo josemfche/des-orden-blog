@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Audio } from 'react-loader-spinner';
 
 const FinDataBox = ({ finData, loading }) => {
+  console.log(finData);
   if (loading || finData === null) {
     return (
       <Audio
@@ -28,6 +29,13 @@ const FinDataBox = ({ finData, loading }) => {
     '^GSPC': 'S&P 500',
     '^BVSP': 'IBOVESPA',
     '^GDAXI': 'DAX PERFORMANCE-INDEX',
+    '^FTSE': 'FTSE 100',
+    '^FCHI': 'CAC 40',
+    '^IBEX': 'IBEX 35',
+    'NYSE:FEZ': 'SPDR EURO STOXX 50 ETF',
+    '^MERV': 'MERVAL',
+    '^N225': 'Nikkei 225',
+    '^MXX': 'IPC MEXICO',
   };
 
   return (
@@ -49,7 +57,7 @@ const FinDataBox = ({ finData, loading }) => {
               {/* <FontAwesomeIcon icon={faChartSimple} className="text-black text-3xl mx-1" /> */}
             </div>
             <div className="flex-1 flex-col">
-              <div className="flex text-sm font-extrabold">{stockNamesMap[stock?.ticker]}</div>
+              <div className="flex text-sm font-extrabold">{stockNamesMap[stock?.msh_id]}</div>
               <div className="flex">{stock?.msh_id}</div>
             </div>
             <div className="text-sm flex flex-col items-end">
@@ -59,7 +67,7 @@ const FinDataBox = ({ finData, loading }) => {
                 ${stock?.last_price.toFixed(2)}
               </span>
               <span
-                className={`${isPositive24h ? 'bg-green-500' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}
+                className={`${isPositive24h ? 'bg-green1' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}
               >
                 {isPositive1h
                   ? <FontAwesomeIcon icon={faArrowDown} className="text-white mx-1" />

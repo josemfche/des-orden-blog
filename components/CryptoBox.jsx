@@ -35,8 +35,8 @@ const CryptoBox = ({ cryptoData, loading }) => {
               /> */}
             </div>
             <div className="flex-1 flex-col">
-              <div className="flex font-extrabold">{coin.name}</div>
               <div className="flex">{coin.symbol}</div>
+              <div className="flex font-extrabold">{coin.name}</div>
             </div>
             <div className="text-sm flex flex-col items-end">
               <span
@@ -45,7 +45,7 @@ const CryptoBox = ({ cryptoData, loading }) => {
                 ${coin.quote.USD.price.toFixed(2)}
               </span>
               <span
-                className={`${isPositive24h ? 'bg-green-500' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}
+                className={`${isPositive24h ? 'bg-green1' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}
               >
                 {isPositive1h
                   ? <FontAwesomeIcon icon={faArrowDown} className="text-white mx-1" />
