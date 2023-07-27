@@ -3,25 +3,17 @@ import axios from 'axios';
 import YouTube from 'react-youtube';
 import Modal from 'react-modal';
 import Pagination from './Pagination';
-import CategoriesBar from './CategoriesBar';
+import PlayListBar from './PlayListBar';
 
 const YoutubeGrid = () => {
   const [videos, setVideos] = useState([]);
-  const [seasonSlug, setSeasonSlug] = useState('all');
+  const [seasons, setSeasons] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const [isOpen, setSetIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideoIndex, setSelectedVideoIndex] = useState(0); // Track the index of the selected video
+
   const [errorLoading, setErrorLoading] = useState(false);
-
-  const handleVideoOpen = (videoId) => {
-    setSetIsOpen(true);
-    setSelectedVideo(videoId);
-  };
-
-  const handleVideoClose = () => {
-    /* setSelectedVideo(); */
-    setSetIsOpen(false);
-  };
 
   // eslint-disable-next-line no-nested-ternary
   /*   const filteredVideos = seasonSlug === 'all'
@@ -37,6 +29,33 @@ const YoutubeGrid = () => {
   const currentVideos = videos.slice(indexOfFirstPost, indexOfLastPost);
 
   /*   const totalPages = Math.ceil(posts.length / postsPerPage); */
+
+  const handleVideoOpen = (videoId, videoIndex) => { // Receive the index as well
+    setSetIsOpen(true);
+    setSelectedVideo(videoId);
+    setSelectedVideoIndex(videoIndex); // Update the selected video's index
+  };
+
+  const handleNextVideo = () => {
+    const nextIndex = selectedVideoIndex + 1;
+    if (nextIndex < currentVideos.length) {
+      setSelectedVideoIndex(nextIndex);
+      setSelectedVideo(currentVideos[nextIndex].id.videoId);
+    }
+  };
+
+  const handlePreviousVideo = () => {
+    const prevIndex = selectedVideoIndex - 1;
+    if (prevIndex >= 0) {
+      setSelectedVideoIndex(prevIndex);
+      setSelectedVideo(currentVideos[prevIndex].id.videoId);
+    }
+  };
+
+  const handleVideoClose = () => {
+    /* setSelectedVideo(); */
+    setSetIsOpen(false);
+  };
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -57,7 +76,10 @@ const YoutubeGrid = () => {
             },
           },
         );
-        setVideos(response.data.items.filter((video) => video.id.kind !== 'youtube#channel'));
+
+        setVideos(response.data.items.filter((video) => video.id.kind !== 'youtube#playlist'));
+        setSeasons(response.data.items.filter((video) => video.id.kind === 'youtube#playlist'));
+        console.log(response.data.items.filter((video) => video.id.kind === 'youtube#playlist'));
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error('Error fetching videos:', error);
@@ -83,14 +105,14 @@ const YoutubeGrid = () => {
   return (
     <div className="container mx-auto md:px-4 justify-center flex flex-col items-center">
       {/* Refactor to render a series of elements */}
-      <CategoriesBar
+      <PlayListBar
         classNames="mb-4"
-        setCategorySlug={setSeasonSlug}
-        seasonSlug={seasonSlug}
+        setSeasons={setSeasons}
+        itemslist={seasons}
         setCurrentPage={setCurrentPage}
       />
       <div className="flex flex-wrap lg:mx-4">
-        {currentVideos.map((video) => {
+        {currentVideos.map((video, index) => { // Pass the index to the map function
           const { videoId } = video.id;
           return (
             <div
@@ -100,7 +122,7 @@ const YoutubeGrid = () => {
               <div className="max-w-sm rounded overflow-hidden border border-zinc-800 bg-white">
                 <div
                   className="cursor-pointer"
-                  onClick={() => handleVideoOpen(videoId)}
+                  onClick={() => handleVideoOpen(videoId, index)}
                 >
                   <img
                     className="w-full"
@@ -131,14 +153,18 @@ const YoutubeGrid = () => {
         isOpen={isOpen}
         onRequestClose={handleVideoClose}
         ariaHideApp={false}
-        className="Modal"
+        className="Modal max-w-screen-xl"
         overlayClassName="Overlay"
       >
         <YouTube
           videoId={selectedVideo}
           opts={youtubeOptions}
-          className="h-full flex justify-center items-center"
+          className="h-full flex justify-center items-center max-w-screen-xl"
         />
+        <div className="flex flex-row justify-between my-2">
+          <button className="bg-white rounded-md py-2 px-4" type="button" onClick={handlePreviousVideo}>{'< Capítulo anterior'}</button>
+          <button className="bg-white rounded-md py-2 px-4" type="button" onClick={handleNextVideo}>{'Capítulo siguiente >'}</button>
+        </div>
       </Modal>
     </div>
   );
