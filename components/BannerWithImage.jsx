@@ -18,7 +18,6 @@ const Hero = ({ isHome }) => (
         <CotizacionesCarousel />
       </div>
     </div>
-    {/* <CotizacionesCarousel /> */}
     {!isHome && (
       <div className="flex items-center justify-center">
         <div className="relative">

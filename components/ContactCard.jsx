@@ -7,7 +7,7 @@ const ContactCard = ({ picture, title, role, description }) => (
     <img
       src={picture}
       alt="Profile"
-      className="w-44 h-44 rounded-full mb-4"
+      className="w-44 h-44 mb-4"
     />
     <h3 className="text-xl font-semibold">{title}</h3>
     <p className="text-gray-500 mb-2">{role}</p>

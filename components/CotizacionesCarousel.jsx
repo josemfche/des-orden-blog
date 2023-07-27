@@ -73,7 +73,7 @@ const CotizacionesCarousel = () => {
     return chunks;
   };
 
-  const stocksDataChunks = chunkArray(stocksData, 5);
+  const stocksDataChunks = chunkArray(stocksData, 4);
 
   return (
     <Carousel

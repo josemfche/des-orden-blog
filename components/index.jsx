@@ -24,3 +24,4 @@ export { default as TweetsCarousel } from './TweetsCarousel';
 export { default as YoutubeGrid } from './YoutubeGrid';
 export { default as ContactCard } from './ContactCard';
 export { default as ContactForm } from './ContactForm';
+export { default as Companies } from './Companies';
