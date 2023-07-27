@@ -7,7 +7,7 @@ import PlayListBar from './PlayListBar';
 
 const YoutubeGrid = () => {
   const [videos, setVideos] = useState([]);
-  const [seasons, setSeasons] = useState('all');
+  const [seasons, setSeasons] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isOpen, setSetIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
