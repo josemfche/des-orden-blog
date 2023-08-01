@@ -26,22 +26,22 @@ const data = [
 ];
 
 const BoxGrid = () => (
-  <div className="flex flex-col mx-32">
-    <h2 className="text-6xl mb-4">Nuestras empresas y propósito</h2>
-    <p className="mb-6 text-xl">Pertenecernos a varias empresas privadas que hacen vida en el mundo financiero y de consultoría empresarial y de entorno, nuestro propósito es ser una fuente de información fiable y crítica en temas económicos venezolanos y latinoamericanos.</p>
+  <div className="flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32">
+    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 text-secondthegray">Nuestras empresas y propósito</h2>
+    <p className="mb-6 text-lg sm:text-xl text-secondthegray">Pertenecernos a varias empresas privadas que hacen vida en el mundo financiero y de consultoría empresarial y de entorno, nuestro propósito es ser una fuente de información fiable y crítica en temas económicos venezolanos y latinoamericanos.</p>
 
-    <div className="flex flex-wrap justify-between">
+    <div className="flex flex-wrap justify-center sm:justify-between">
       {data.map((item) => (
         <div
           key={item.id}
-          className="w-5/12 rounded-lg overflow-hidden shadow-lg my-4 px-8"
+          className="w-full sm:w-5/12 rounded-lg overflow-hidden shadow-lg my-4 px-4 sm:px-8 flex flex-col align-center justify-center"
         >
           <img
             src={item.imageSrc}
             alt={`Image ${item.id}`}
-            className="w-full h-40 object-cover"
+            className="w-full object-contain sm:object-cover"
           />
-          <p className="p-4 text-center">{item.description}</p>
+          <p className="p-4 text-center text-secondthegray">{item.description}</p>
         </div>
       ))}
     </div>

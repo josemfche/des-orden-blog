@@ -24,10 +24,15 @@ const Header = () => {
 
       {/* Mobile sidebar */}
       <div className={`fixed top-0 right-0 h-full bg-white z-10 transition-transform duration-300 transform ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'} sm:hidden w-3/4 max-w-xs`}>
-        <div className="flex justify-end items-center mt-4 mx-4">
+        <div className="flex justify-between items-center mt-4 mx-4">
+          <Link href="/">
+            <a className="flex items-center cursor-pointer">
+              <img src="/logo.png" alt="Logo" className="w-12 h-12 mr-2" />
+            </a>
+          </Link>
           <FontAwesomeIcon icon={faX} className="text-black cursor-pointer text-2xl" onClick={toggleSidebar} />
         </div>
-        <div className="flex flex-col items-center mt-8">
+        <div className="flex flex-col items-left mt-8 ml-4 mb-8">
           <Link href="/blog">
             <a className="text-black font-normal cursor-pointer mb-4">Artículos</a>
           </Link>
