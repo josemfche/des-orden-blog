@@ -48,10 +48,10 @@ const CryptoBox = ({ cryptoData, loading }) => {
                 className={`${isPositive24h ? 'bg-green1' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}
               >
                 {isPositive1h
-                  ? <FontAwesomeIcon icon={faArrowDown} className="text-white mx-1" />
+                  ? <FontAwesomeIcon icon={faArrowUp} className="text-white mx-1" />
                   : <></>}
                 {!isPositive1h
-                  ? <FontAwesomeIcon icon={faArrowUp} className="text-white mx-1" />
+                  ? <FontAwesomeIcon icon={faArrowDown} className="text-white mx-1" />
                   : <></>}
                 {` ${coin.quote.USD.percent_change_24h.toFixed(2)}`}%
               </span>

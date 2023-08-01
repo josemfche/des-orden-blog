@@ -60,13 +60,13 @@ export default function Home({ posts }) {
           {currentPosts.map((post, index) => {
             if (index === 0) {
               return (
-                <div key={post.node.title} className="w-full md:w-full lg:w-full px-6">
+                <div key={post.node.title} className="w-full md:w-full lg:w-full border border-thirdthegray rounded-md">
                   <PostBanner post={post.node} />
                 </div>
               );
             }
             return (
-              <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol px-3 mb-4">
+              <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol mb-4 border border-thirdthegray rounded-md">
                 <PostCard post={post.node} />
               </div>
             );

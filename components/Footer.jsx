@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => (
   <footer className="bg-thegray">
-    <div className="container mx-auto py-12 px-8 sm:px-24 flex md:flex-row flex-col justify-between sm:flex-row border-b boder-white items-center h-44">
+    <div className="container mx-auto py-12 px-8 sm:px-24 flex md:flex-row flex-col justify-between sm:flex-row lg:border-b boder-white items-center h-44 mb-4">
       <div className="flex-grow sm:flex-grow-0 flex justify-center sm:justify-start mb-4 sm:mb-0">
         <Link href="/">
           <div className="flex cursor-pointer items-center">
@@ -30,9 +30,9 @@ const Footer = () => (
           </li>
         </ul>
       </div>
-      <div className="sm:flex-grow-0 flex justify-center sm:justify-end">
-        <ul className="flex justify-center sm:justify-end text-white">
-          <li className="mr-5">
+      <div className="flex flex-col lg:justify-center lg:align-center sm:justify-end h-full">
+        <ul className="flex flex-row justify-center align-center text-white">
+          <li className="mr-5 flex">
             <a href="/">
               <FontAwesomeIcon className="text-2xl" icon={faFacebookF} />
             </a>
@@ -51,7 +51,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="flex justify-center w-full">
-      <ul className="flex justify-center items-center sm:justify-start text-white h-32">
+      <ul className="flex justify-center items-center text-center text-white h-32">
         <li className="mx-5 underline">
           <a href="/">Politicas de Privacidad</a>
         </li>

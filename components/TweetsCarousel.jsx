@@ -46,7 +46,7 @@ const TweetsCarousel = ({ tweetIds }) => {
           <TweetEmbed
             tweetId={tweetId}
             options={{ cards: 'hidden', align: 'center' }}
-            className=""
+            className="h-full flex-1"
             placeholder={(
               <div className="flex w-full justify-center">
                 <Circles
