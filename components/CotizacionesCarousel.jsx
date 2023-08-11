@@ -4,11 +4,13 @@ import Carousel from 'react-multi-carousel';
 import { Circles } from 'react-loader-spinner';
 import CryptoBox from './CryptoBox';
 import FinDataBox from './FinDataBox';
+import BolsaDeValoresBox from './BolsaDeValoresBox';
 import 'react-multi-carousel/lib/styles.css';
 
 const CotizacionesCarousel = () => {
   const [cryptoData, setCryptoData] = useState(null);
   const [stocksData, setStocksData] = useState(null);
+  const [bolsaDeValoresData, setBolsaDeValores] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,9 +21,8 @@ const CotizacionesCarousel = () => {
         );
         setCryptoData(res.data.crypto);
         setStocksData(res.data.stocks);
-        console.log(res.data);
+        setBolsaDeValores(res.data.bolsaDeValores);
         setLoading(false);
-        console.error(res);
       } catch (error) {
         console.error(error);
         setLoading(false);
@@ -96,6 +97,7 @@ const CotizacionesCarousel = () => {
     >
       {stocksDataChunks.map((chunk) => <FinDataBox finData={chunk} loading={loading} />)}
       <CryptoBox cryptoData={cryptoData} loading={loading} />
+      <BolsaDeValoresBox bolsaDeValoresData={bolsaDeValoresData} loading={loading} />
     </Carousel>
   );
 };

@@ -1,6 +1,6 @@
 /* import Image from 'next/image'; */
 import Link from 'next/link';
-import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { /* faFacebookF, */ faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => (
@@ -32,18 +32,18 @@ const Footer = () => (
       </div>
       <div className="flex flex-col lg:justify-center lg:align-center sm:justify-end h-full">
         <ul className="flex flex-row justify-center align-center text-white">
-          <li className="mr-5 flex">
-            <a href="/">
+          {/*           <li className="mr-5 flex">
+            <a target="_blank" href="/">
               <FontAwesomeIcon className="text-2xl" icon={faFacebookF} />
             </a>
-          </li>
+          </li> */}
           <li className="mr-5">
-            <a href="/">
+            <a target="_blank" href="https://instagram.com/oscardovalve?igshid=Y2I2MzMwZWM3ZA==" rel="noreferrer">
               <FontAwesomeIcon className="text-2xl" icon={faInstagram} />
             </a>
           </li>
           <li className="mr-5">
-            <a href="/">
+            <a target="_blank" href="https://twitter.com/oscardovalve?s=21&t=OhnkCcR0ZqITGcPXLu1Pfg" rel="noreferrer">
               <FontAwesomeIcon className="text-2xl" icon={faTwitter} />
             </a>
           </li>
