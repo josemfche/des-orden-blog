@@ -23,6 +23,7 @@ const BolsaDeValoresBox = ({ bolsaDeValoresData, loading }) => {
 
   return (
     <div className="bg-white w-full rounded-lg py-4 px-8 h-full flex flex-col justify-center">
+      <div className="font-bold text-center w-full">Nacional</div>
       <div key={BCVData?.COD_SIMB} className="flex items-center my-2 py-2">
         <div className="rounded-full shadow-2xl flex justify-center items-center">
           {/*               <Image
@@ -40,7 +41,7 @@ const BolsaDeValoresBox = ({ bolsaDeValoresData, loading }) => {
           <span
             className={`mr-1 font-extrabold text-xl ${' '}`}
           >
-            ${parseFloat(BCVData.PRECIO_ULT).toFixed(2)}
+            {parseFloat(BCVData.PRECIO_ULT).toFixed(2)}
           </span>
           <span
             className={`${isPositive1hBCV ? 'bg-green1' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}
@@ -78,7 +79,7 @@ const BolsaDeValoresBox = ({ bolsaDeValoresData, loading }) => {
                 <span
                   className={`mr-1 font-extrabold text-xl ${' '}`}
                 >
-                  ${parseFloat(stock.INDI_ACTUAL).toFixed(2)}
+                  {parseFloat(stock.INDI_ACTUAL).toFixed(2)}
                 </span>
                 <span
                   className={`${isPositive24h ? 'bg-green1' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}

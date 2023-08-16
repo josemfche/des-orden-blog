@@ -273,3 +273,22 @@ export const getRecentPosts = async () => {
 
   return result.posts;
 };
+
+export const searchPostSByTitle = async () => {
+  const query = gql`
+    query SearchPostsByTitle($title: String!) {
+      posts(where: { title_contains: $title }) {
+        title
+        featuredImage {
+          url
+        }
+        createdAt
+        slug
+        excerpt
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+
+  return result.posts;
+};

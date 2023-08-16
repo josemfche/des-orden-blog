@@ -3,6 +3,7 @@ import axios from 'axios';
 const API_BASE_URL = 'https://www.bolsadecaracas.com/api';
 const LOGIN_ENDPOINT = '/login';
 const DATA_ENDPOINT = '/mercado/indices';
+const DATA_ENDPOINT_RENTA_VARIABLE = '/mercado/renta-variable/titulos';
 
 let currentToken = null;
 
@@ -33,6 +34,25 @@ const fetchDataWithToken = async (token) => {
   }
 };
 
+const fetchDataRentaWithToken = async (token) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}${DATA_ENDPOINT_RENTA_VARIABLE}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data.response;
+  } catch (error) {
+    if (error.response && error.response.status === 401) {
+      // Token expired, get a new token and retry
+      const newToken = await getToken();
+      currentToken = newToken;
+      return fetchDataRentaWithToken(newToken);
+    }
+    throw error;
+  }
+};
+
 export const getBolsaDeValoresData = async () => {
   try {
     // Get token from localStorage or login if it doesn't exist or is expired
@@ -44,12 +64,15 @@ export const getBolsaDeValoresData = async () => {
 
     // Use the token to fetch data
     const data = await fetchDataWithToken(token);
+    const dataRenta = await fetchDataRentaWithToken(token);
 
-    return Object.keys(data.response).map((key) => {
-      const dataBolsa = data.response[key];
-      dataBolsa.COD_SIMB = key.toUpperCase();
-      return dataBolsa;
+    const dataBolsa = Object.keys(data.response).map((key) => {
+      const dataBolsaVar = data.response[key];
+      dataBolsaVar.COD_SIMB = key.toUpperCase();
+      return dataBolsaVar;
     });
+
+    return { dataBolsa, dataRenta };
   } catch (error) {
     console.error('Error fetching stock data:', error);
     throw error;

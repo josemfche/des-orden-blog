@@ -5,12 +5,14 @@ import { Circles } from 'react-loader-spinner';
 import CryptoBox from './CryptoBox';
 import FinDataBox from './FinDataBox';
 import BolsaDeValoresBox from './BolsaDeValoresBox';
+import BolsaDeValoresBoxRentaVar from './BolsaDeValoresBoxRentaVar';
 import 'react-multi-carousel/lib/styles.css';
 
 const CotizacionesCarousel = () => {
   const [cryptoData, setCryptoData] = useState(null);
   const [stocksData, setStocksData] = useState(null);
   const [bolsaDeValoresData, setBolsaDeValores] = useState(null);
+  const [bolsaDeValoresRentaData, setBolsaDeValoresRenta] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,7 +23,8 @@ const CotizacionesCarousel = () => {
         );
         setCryptoData(res.data.crypto);
         setStocksData(res.data.stocks);
-        setBolsaDeValores(res.data.bolsaDeValores);
+        setBolsaDeValores(res.data.bolsaDeValores.dataBolsa);
+        setBolsaDeValoresRenta(res.data.bolsaDeValores.dataRenta);
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -75,6 +78,8 @@ const CotizacionesCarousel = () => {
   };
 
   const stocksDataChunks = chunkArray(stocksData, 4);
+  const bolsaDeValoresRentaDataChunks = chunkArray(bolsaDeValoresRentaData, 4);
+  console.log(bolsaDeValoresRentaData);
 
   return (
     <Carousel
@@ -95,9 +100,10 @@ const CotizacionesCarousel = () => {
       itemClass=""
       className="shadow-xl rounded-lg xl:w-4/5 lg:w-full h-full"
     >
+      {bolsaDeValoresRentaDataChunks.map((chunk) => <BolsaDeValoresBoxRentaVar finData={chunk} loading={loading} />)}
+      <BolsaDeValoresBox bolsaDeValoresData={bolsaDeValoresData} loading={loading} />
       {stocksDataChunks.map((chunk) => <FinDataBox finData={chunk} loading={loading} />)}
       <CryptoBox cryptoData={cryptoData} loading={loading} />
-      <BolsaDeValoresBox bolsaDeValoresData={bolsaDeValoresData} loading={loading} />
     </Carousel>
   );
 };
