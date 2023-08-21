@@ -43,7 +43,6 @@ export default function Home({ posts }) {
   }, [posts]);
 
   useEffect(() => {
-    inputReference.current.focus();
   }, [globalPosts]);
 
   // eslint-disable-next-line no-nested-ternary
