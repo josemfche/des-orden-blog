@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { usePostStore } from '../stores/globalStore';
 import { PostCard, PostBanner, /* Categories, PostWidget, */ BannerWithImage, CategoriesBar, Pagination, TwoColumns, TweetsCarousel } from '../components';
 import { getPosts } from '../services';
 import NewsletterBanner from '../components/NewsLetterBanner';
@@ -31,10 +32,24 @@ const data = [
 export default function Home({ posts }) {
   const [categorySlug, setCategorySlug] = useState('all');
 
+  const [globalPosts, updatePosts] = usePostStore(
+    (state) => [state.globalPosts, state.updatePosts],
+  );
+
+  const inputReference = useRef(null);
+
+  useEffect(() => {
+    updatePosts(posts);
+  }, [posts]);
+
+  useEffect(() => {
+    inputReference.current.focus();
+  }, [globalPosts]);
+
   // eslint-disable-next-line no-nested-ternary
   const filteredPosts = categorySlug === 'all'
-    ? posts
-    : posts.filter((post) => post.node.categories.some(
+    ? globalPosts
+    : globalPosts.filter((post) => post.node.categories.some(
       (category) => category.slug === categorySlug,
     ));
 
@@ -45,7 +60,7 @@ export default function Home({ posts }) {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-  /*   const totalPages = Math.ceil(posts.length / postsPerPage); */
+  /*   const totalPages = Math.ceil(globalPosts.length / postsPerPage); */
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -60,7 +75,7 @@ export default function Home({ posts }) {
           {currentPosts.map((post, index) => {
             if (index === 0) {
               return (
-                <div key={post.node.title} className="w-full md:w-full lg:w-full border border-thirdthegray lg:rounded-lg md:rounded-t-lg">
+                <div ref={inputReference} key={post.node.title} className="w-full md:w-full lg:w-full border border-thirdthegray lg:rounded-lg md:rounded-t-lg">
                   <PostBanner post={post.node} />
                 </div>
               );

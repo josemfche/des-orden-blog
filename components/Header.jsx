@@ -1,15 +1,52 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import { usePostStore } from '../stores/globalStore';
+import { searchPostSByTitle } from '../services';
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [searchParam, setSearchParam] = useState('');
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  const [updatePosts] = usePostStore(
+    (state) => [state.updatePosts],
+  );
+
+  const constructArray = (postArray) => {
+    const newPostArray = postArray.map((post) => ({ node: post, cursor: 'null' }));
+    return newPostArray;
+  };
+
+  const handleKeyDown = async (event) => {
+    if (event.key === 'Enter') {
+      if (searchParam.length > 2) {
+        const searchedPosts = (await searchPostSByTitle(searchParam)) || [];
+
+        console.log({ searchedPosts });
+        updatePosts(constructArray(searchedPosts));
+        setSearchParam('');
+      }
+    }
+  };
+
+  useEffect(async () => {
+    /*     if (searchParam.length > 2) {
+      const searchedPosts = (await searchPostSByTitle(searchParam)) || [];
+
+      console.log({ searchedPosts });
+
+      updatePosts(constructArray(searchedPosts));
+    }
+
+    return () => {
+    }; */
+  }, [searchParam]);
 
   return (
     <div className="container mx-auto px-4 sm:px-10 mb-4 pt-3 flex flex-wrap items-center justify-between">
@@ -80,6 +117,9 @@ const Header = () => {
       <div className="hidden sm:block">
         <div className="relative">
           <input
+            onKeyDown={handleKeyDown}
+            value={searchParam}
+            onChange={(e) => setSearchParam(e.target.value)}
             type="text"
             placeholder="Buscar"
             className="searchInputHome border text-gray-400 bg-white py-2 pl-4 pr-12 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"

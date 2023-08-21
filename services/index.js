@@ -274,21 +274,33 @@ export const getRecentPosts = async () => {
   return result.posts;
 };
 
-export const searchPostSByTitle = async () => {
+export const searchPostSByTitle = async (title) => {
   const query = gql`
-    query SearchPostsByTitle($title: String!) {
-      posts(where: { title_contains: $title }) {
-        title
-        featuredImage {
-          url
+    query searchPostsByTitle($title: String!) {
+      posts( where: { title_contains: $title } ) {
+        author {
+          bio
+          name
+          id
+          photo {
+            url
+          }
         }
         createdAt
         slug
+        title
         excerpt
+        featuredImage {
+          url
+        }
+        categories {
+          name
+          slug
+        }
       }
     }
   `;
-  const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query, { title });
 
   return result.posts;
 };

@@ -79,7 +79,6 @@ const CotizacionesCarousel = () => {
 
   const stocksDataChunks = chunkArray(stocksData, 4);
   const bolsaDeValoresRentaDataChunks = chunkArray(bolsaDeValoresRentaData, 4);
-  console.log(bolsaDeValoresRentaData);
 
   return (
     <Carousel
@@ -100,9 +99,9 @@ const CotizacionesCarousel = () => {
       itemClass=""
       className="shadow-xl rounded-lg xl:w-4/5 lg:w-full h-full"
     >
-      {bolsaDeValoresRentaDataChunks.map((chunk) => <BolsaDeValoresBoxRentaVar finData={chunk} loading={loading} />)}
+      {bolsaDeValoresRentaDataChunks.map((chunk, i) => <BolsaDeValoresBoxRentaVar key={i} finData={chunk} loading={loading} />)}
       <BolsaDeValoresBox bolsaDeValoresData={bolsaDeValoresData} loading={loading} />
-      {stocksDataChunks.map((chunk) => <FinDataBox finData={chunk} loading={loading} />)}
+      {stocksDataChunks.map((chunk, i) => <FinDataBox key={i} finData={chunk} loading={loading} />)}
       <CryptoBox cryptoData={cryptoData} loading={loading} />
     </Carousel>
   );

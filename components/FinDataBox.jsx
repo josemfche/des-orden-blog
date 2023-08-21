@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Audio } from 'react-loader-spinner';
 
 const FinDataBox = ({ finData, loading }) => {
-  console.log(finData);
   if (loading || finData === null) {
     return (
       <Audio
