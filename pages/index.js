@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useLayoutEffect, useRef } from 'react';
 import { usePostStore } from '../stores/globalStore';
 import { PostCard, PostBanner, /* Categories, PostWidget, */ BannerWithImage, CategoriesBar, Pagination, TwoColumns, TweetsCarousel } from '../components';
 import { getPosts } from '../services';
@@ -32,18 +32,19 @@ const data = [
 export default function Home({ posts }) {
   const [categorySlug, setCategorySlug] = useState('all');
 
-  const [globalPosts, updatePosts] = usePostStore(
-    (state) => [state.globalPosts, state.updatePosts],
+  const [globalPosts, scrollView, updatePosts] = usePostStore(
+    (state) => [state.globalPosts, state.scrollView, state.updatePosts],
   );
 
-  const inputReference = useRef(null);
+  const scrollReference = useRef(null);
 
   useEffect(() => {
     updatePosts(posts);
   }, [posts]);
 
-  useEffect(() => {
-  }, [globalPosts]);
+  useLayoutEffect(() => {
+    scrollReference.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [scrollView]);
 
   // eslint-disable-next-line no-nested-ternary
   const filteredPosts = categorySlug === 'all'
@@ -65,26 +66,35 @@ export default function Home({ posts }) {
     setCurrentPage(pageNumber);
   };
 
+  const NoDataToShow = () => (
+    <div className="w-full flex flex-row justify-center align-center py-8">
+      <div className="">
+        <h3 className="text-center font-normal text-3xl">No hay artículos para mostrar...</h3>
+      </div>
+    </div>
+  );
+
   return (
     <div className="px-1 mb-8 mx-2 sm:mx-24">
       <BannerWithImage isHome />
       <CategoriesBar setCategorySlug={setCategorySlug} setCurrentPage={setCurrentPage} />
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex flex-wrap w-full gap-3 mb-12 justify-center">
-          {currentPosts.map((post, index) => {
-            if (index === 0) {
+          {currentPosts.length === 0 ? <NoDataToShow />
+            : currentPosts.map((post, index) => {
+              if (index === 0) {
+                return (
+                  <div ref={scrollReference} key={post.node.title} className="w-full md:w-full lg:w-full border border-thirdthegray lg:rounded-lg md:rounded-t-lg">
+                    <PostBanner post={post.node} />
+                  </div>
+                );
+              }
               return (
-                <div ref={inputReference} key={post.node.title} className="w-full md:w-full lg:w-full border border-thirdthegray lg:rounded-lg md:rounded-t-lg">
-                  <PostBanner post={post.node} />
+                <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol mb-4 border border-thirdthegray rounded-t-lg">
+                  <PostCard post={post.node} />
                 </div>
               );
-            }
-            return (
-              <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol mb-4 border border-thirdthegray rounded-t-lg">
-                <PostCard post={post.node} />
-              </div>
-            );
-          })}
+            })}
           <Pagination
             handlePageChange={handlePageChange}
             currentPage={currentPage}

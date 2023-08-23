@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
@@ -28,25 +28,11 @@ const Header = () => {
       if (searchParam.length > 2) {
         const searchedPosts = (await searchPostSByTitle(searchParam)) || [];
 
-        console.log({ searchedPosts });
         updatePosts(constructArray(searchedPosts));
         setSearchParam('');
       }
     }
   };
-
-  useEffect(async () => {
-    /*     if (searchParam.length > 2) {
-      const searchedPosts = (await searchPostSByTitle(searchParam)) || [];
-
-      console.log({ searchedPosts });
-
-      updatePosts(constructArray(searchedPosts));
-    }
-
-    return () => {
-    }; */
-  }, [searchParam]);
 
   return (
     <div className="container mx-auto px-4 sm:px-10 mb-4 pt-3 flex flex-wrap items-center justify-between">
