@@ -62,7 +62,7 @@ export default function Home({ posts }) {
         <div ref={scrollReference} className="flex flex-wrap w-full gap-3">
           {currentPosts.length === 0 ? <NoDataToShow />
             : currentPosts.map((post) => (
-              <div key={post.node.title} className="w-full md:w-1/3 lg:w-trecol px-3">
+              <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol mb-4 border border-thirdthegray rounded-t-lg">
                 <PostCard post={post.node} />
               </div>
             ))}

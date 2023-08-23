@@ -25,12 +25,10 @@ const Header = () => {
 
   const handleKeyDown = async (event) => {
     if (event.key === 'Enter') {
-      if (searchParam.length > 2) {
-        const searchedPosts = (await searchPostSByTitle(searchParam)) || [];
+      const searchedPosts = (await searchPostSByTitle(searchParam)) || [];
 
-        updatePosts(constructArray(searchedPosts));
-        setSearchParam('');
-      }
+      updatePosts(constructArray(searchedPosts));
+      setSearchParam('');
       if (isSidebarOpen) setIsSidebarOpen(!isSidebarOpen);
     }
   };
