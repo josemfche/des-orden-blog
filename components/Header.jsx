@@ -31,6 +31,7 @@ const Header = () => {
         updatePosts(constructArray(searchedPosts));
         setSearchParam('');
       }
+      if (isSidebarOpen) setIsSidebarOpen(!isSidebarOpen);
     }
   };
 
@@ -72,9 +73,12 @@ const Header = () => {
         <div className="absolute left-0 right-0 w-full py-4 px-4">
           <div className="relative">
             <input
+              onKeyDown={handleKeyDown}
+              value={searchParam}
+              onChange={(e) => setSearchParam(e.target.value)}
               type="text"
               placeholder="Buscar"
-              className="searchInputHome text-gray-400 bg-gray-100 py-2 pl-4 pr-12 border rounded-sm focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+              className="searchInputHome border text-gray-400 bg-white py-2 pl-4 pr-12 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
             />
             <div className="absolute inset-y-0 right-8 flex items-center pointer-events-none">
               <FontAwesomeIcon icon={faSearch} className="text-black" />
