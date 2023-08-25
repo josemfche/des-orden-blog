@@ -84,13 +84,13 @@ export default function Home({ posts }) {
             : currentPosts.map((post, index) => {
               if (index === 0) {
                 return (
-                  <div ref={scrollReference} key={post.node.title} className="w-full md:w-full lg:w-full border border-thirdthegray lg:rounded-lg md:rounded-t-lg">
+                  <div ref={scrollReference} key={post.node.title} className="w-full md:w-full lg:w-full border border-thirdthegray lg:rounded-lg rounded-lg">
                     <PostBanner post={post.node} />
                   </div>
                 );
               }
               return (
-                <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol mb-4 border border-thirdthegray rounded-t-lg">
+                <div key={post.node.title} className="w-full md:w-1/2 lg:w-trecol mb-4 border border-thirdthegray rounded-lg">
                   <PostCard post={post.node} />
                 </div>
               );

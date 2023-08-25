@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const PostBanner = ({ post }) => (
   <div className="flex flex-col xl:flex-row lg:flex-row sm:flex-col">
-    <div className="relative overflow-hidden lg:w-7/12 md:w-full h-100 p-40">
+    <div className="relative overflow-hidden lg:w-7/12 md:w-full h-100 p-40 rounded-t-lg">
       <Image
         className="lg:rounded-l-lg lg:rounded-tr-none md:rounded-t-lg"
         src={post.featuredImage.url}
@@ -14,7 +14,7 @@ const PostBanner = ({ post }) => (
         alt=""
       />
     </div>
-    <div className="flex flex-col justify-between justify-center w-full lg:h-fit lg:w-2/5 bg-white md:py-32 py-8 xl:rounded-r-lg lg:px-6 px-8">
+    <div className="flex flex-col justify-between justify-center w-full lg:h-fit lg:w-2/5 bg-white md:py-32 py-8 xl:rounded-r-lg lg:px-6 px-8 rounded-b-lg">
       <div className="flex mb-4 lg:justify-start justify-center">
         <div className="text-center text-gray-700 font-normal lg:justify-center">
           <ul className="flex lg:justify-left flex-wrap">
