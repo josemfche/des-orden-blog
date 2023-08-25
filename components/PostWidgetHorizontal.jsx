@@ -21,15 +21,15 @@ const PostWidgetHorizontal = ({ categories, slug }) => {
   return (
     <div className="rounded-lg lg:p-8 p-2 pb-12 mb-8">
       <div className="mb-4 flex flex-row items-center justify-between">
-        <h3 className="text-2xl font-semibold pb-4">{slug ? 'Artículos relacionados' : 'Artículos recientes'}</h3>
-        <p className="mb-2transition cursor-pointer hover:text-thegray font-normal border-b">
+        <h3 className="mb-2 md:text-2xl text-xl font-semibold">{slug ? 'Artículos relacionados' : 'Artículos recientes'}</h3>
+        <p className="mb-2 transition cursor-pointer hover:text-thegray font-normal border-b md:text-xl text-md">
           <Link href="/blog">Ver todos los artículos</Link>
         </p>
       </div>
 
-      <div className="flex lg:flex-row flex-col">
+      <div className="flex lg:flex-row flex-col gap-3">
         {relatedPosts.map((post, index) => (
-          <div key={`${post.slug}index`} className="lg:w-1/3 w-full px-2 min-h-600">
+          <div key={`${post.slug}index`} className="w-full md:w-1/2 lg:w-trecol mb-4 border border-thirdthegray rounded-lg">
             <PostCard key={index} post={post} />
           </div>
         ))}

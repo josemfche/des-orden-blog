@@ -49,12 +49,11 @@ const PostDetail = ({ post }) => {
           <h1 className="mb-4 text-3xl text-gray-800 font-semibold text-center">{post.title}</h1>
           <p className="text-center mb-4 text-gray-600">{post.excerpt}</p>
           <div className="flex items-center justify-center mb-8 w-full">
-            <div className="md:flex items-center justify-center lg:mb-0 lg:w-auto mr-4 items-center">
+            <div className="md:flex items-center justify-center lg:mb-0 lg:w-auto mr-4">
               <img
                 alt={post.author.name}
-                height="45px"
-                width="45px"
-                className="align-middle rounded-full"
+                style={{ width: '60px', height: '60px' }}
+                className="object-cover align-middle rounded-full"
                 src={post.author.photo.url}
               />
             </div>
