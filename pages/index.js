@@ -13,7 +13,6 @@ const data = [
     buttonText: 'Ver mas',
     url: '/blog',
   },
-  
   {
     image: '/grupo-work.png',
     title: 'Des-orden Podcast',
