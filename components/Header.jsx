@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import { UserButton } from '@clerk/nextjs';
 import { usePostStore } from '../stores/globalStore';
 import { searchPostSByTitle } from '../services';
-import { UserButton } from "@clerk/nextjs";
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

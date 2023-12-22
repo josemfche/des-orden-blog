@@ -1,7 +1,5 @@
 import React from 'react';
-import { ClerkProvider } from "@clerk/nextjs";
-
-
+import { ClerkProvider } from '@clerk/nextjs';
 import '../styles/globals.scss';
 import { Layout } from '../components';
 
