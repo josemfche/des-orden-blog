@@ -126,18 +126,18 @@ export default async function handler(req, res) {
   //   console.error(error);
   //   errArray.push('Error fetching data from CoinMarketCap API');
   // }
-  try {
-    tableData.stocks = await getStocksData(['^IXIC', '^DJI', '^GSPC', '^BVSP', '^GDAXI', '^FTSE', '^FCHI', '^IBEX', 'NYSE:FEZ', '^MERV', '^N225', '^MXX']);
-  } catch (error) {
-    console.error(error);
-    errArray.push('Error fetching data from markets sh API');
-  }
-  try {
-    tableData.bolsaDeValores = await getBolsaDeValoresData();
-  } catch (error) {
-    console.error(error);
-    errArray.push('Error fetching data from bolsa de valores API');
-  }
+  // try {
+  //   tableData.stocks = await getStocksData(['^IXIC', '^DJI', '^GSPC', '^BVSP', '^GDAXI', '^FTSE', '^FCHI', '^IBEX', 'NYSE:FEZ', '^MERV', '^N225', '^MXX']);
+  // } catch (error) {
+  //   console.error(error);
+  //   errArray.push('Error fetching data from markets sh API');
+  // }
+  // try {
+  //   tableData.bolsaDeValores = await getBolsaDeValoresData();
+  // } catch (error) {
+  //   console.error(error);
+  //   errArray.push('Error fetching data from bolsa de valores API');
+  // }
 
   res.send({ tableData, errArray });
 }
