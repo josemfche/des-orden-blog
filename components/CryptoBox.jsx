@@ -54,7 +54,7 @@ const CryptoBox = ({ cryptoData, loading }) => {
                 {!isPositive1h
                   ? <FontAwesomeIcon icon={faArrowDown} className="text-white mx-1" />
                   : <></>}
-                {` ${coin.quote.USD.percent_change_24h.toFixed(2)}`}%
+                {coin.quote.USD.percent_change_24h && ` ${coin.quote.USD.percent_change_24h.toFixed(2)}%`}
               </span>
             </div>
           </div>
