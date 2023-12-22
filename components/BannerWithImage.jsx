@@ -15,7 +15,7 @@ const Hero = ({ isHome }) => (
         </p> */}
       </div>
       <div className="lg:w-1/3 w-full justify-center items-center">
-        <CotizacionesCarousel />
+        {/* <CotizacionesCarousel /> */}
       </div>
     </div>
     {!isHome && (
