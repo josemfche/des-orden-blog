@@ -43,7 +43,7 @@ const CryptoBox = ({ cryptoData, loading }) => {
               <span
                 className={`mr-1 font-extrabold text-xl ${' '}`}
               >
-                ${coin.quote.USD.price.toFixed(2)}
+                ${coin.quote.USD.price?.toFixed(2)}
               </span>
               <span
                 className={`${isPositive24h ? 'bg-green1' : 'bg-red-500'} flex px-8 justify-center items-center text-white font-bold rounded-lg text-center w-1/2 px-2`}

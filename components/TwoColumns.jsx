@@ -15,14 +15,14 @@ const TwoColumnImageAndText = ({ image, title, description, reverse, url, button
         }
         <div className="lg:w-1/2 w-full">
           {
-          url && (
-          <Link className="w-full" href={url}>
-            <a className="lg:w-1/2 w-full font-bold bg-secondthegray px-5 py-3 rounded-lg text-white hover:bg-red-500 transition-colors">
-              {buttonText}
-            </a>
-          </Link>
-          )
-        }
+            url && (
+              <div className="w-full" onClick={() => window.location.href = url}>
+                <div className="lg:w-1/2 w-full font-bold bg-secondthegray px-5 py-3 rounded-lg text-white hover:bg-red-500 transition-colors">
+                  {buttonText}
+                </div>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>

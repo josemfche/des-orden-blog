@@ -31,7 +31,7 @@ const PostCard = ({ post }) => (
               {post.categories?.map((category) => (
                 <li key={category.slug} className="mr-1 mb-1 bg-black text-white rounded-sm px-2 py-1">
                   <Link href={`/category/${category.slug}`}>
-                    <a>{category.name}</a>
+                    <span>{category.name}</span>
                   </Link>
                 </li>
               ))}
@@ -47,7 +47,9 @@ const PostCard = ({ post }) => (
       </div>
       <div style={{ minHeight: '60px' }} className="mb-1 lg:text-left lg:items-left lg:justify-left text-center items-center justify-center px-4 mb-4">
         <h1 className="mb-2transition duration-700 lg:text-left text-center cursor-pointer hover:text-thegray text-2xl font-normal lg:truncate">
-          <Link href={`/post/${post.slug}`}>{post.title}</Link>
+          <Link href={`/post/${post.slug}`}>
+            <span>{post.title}</span>
+          </Link>
         </h1>
       </div>
       <p style={{ minHeight: '100px' }} className="px-4 lg:text-left lg:items-left lg:justify-left text-center items-center justify-center text-md text-gray-700 font-normal my-4 text-ellipsis overflow-hidden">
@@ -55,7 +57,7 @@ const PostCard = ({ post }) => (
       </p>
       <div className="lg:text-left lg:items-left lg:justify-left text-center items-center justify-center flex-col justify-self-end">
         <Link href={`/post/${post.slug}`}>
-          <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-white text-black border border-black text-lg font-medium rounded-md w-4/3 px-8 py-3 cursor-pointer">{'Leer más  >' }</span>
+          <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-white text-black border border-black text-lg font-medium rounded-md w-4/3 px-8 py-3 cursor-pointer">{'Leer más  >'}</span>
         </Link>
       </div>
     </div>

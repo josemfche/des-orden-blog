@@ -21,7 +21,7 @@ const PostBanner = ({ post }) => (
             {post.categories.map((category) => (
               <li key={category.slug} className="mr-2 my-1 bg-black text-white rounded-sm px-2 py-1">
                 <Link href={`/category/${category.slug}`}>
-                  <a>{category.name}</a>
+                  <span>{category.name}</span>
                 </Link>
               </li>
             ))}
@@ -37,7 +37,9 @@ const PostBanner = ({ post }) => (
         </div>
       </div>
       <h1 className="transition duration-700 lg:text-left text-center mb-4 cursor-pointer hover:text-pink-600 text-3xl font-normal">
-        <Link href={`/post/${post.slug}`}>{post.title}</Link>
+        <Link href={`/post/${post.slug}`}>
+          <span>{post.title}</span>
+        </Link>
       </h1>
       <p className="lg:text-left text-center text-lg text-gray-700 font-normal mb-8 ">
         {post.excerpt}
