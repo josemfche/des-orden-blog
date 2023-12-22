@@ -9,31 +9,31 @@ import BolsaDeValoresBoxRentaVar from './BolsaDeValoresBoxRentaVar';
 import 'react-multi-carousel/lib/styles.css';
 
 const CotizacionesCarousel = () => {
-  const [cryptoData, setCryptoData] = useState(null);
-  const [stocksData, setStocksData] = useState(null);
-  const [bolsaDeValoresData, setBolsaDeValores] = useState(null);
-  const [bolsaDeValoresRentaData, setBolsaDeValoresRenta] = useState(null);
+  const [cryptoData, setCryptoData] = useState([]);
+  const [stocksData, setStocksData] = useState([]);
+  const [bolsaDeValoresData, setBolsaDeValores] = useState([]);
+  const [bolsaDeValoresRentaData, setBolsaDeValoresRenta] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          '/api/get-market-data',
-        );
-        setCryptoData(res.data.tableData.crypto || []);
-        setStocksData(res.data.tableData.stocks || []);
-        setBolsaDeValores(res.data.tableData.bolsaDeValores.dataBolsa || []);
-        setBolsaDeValoresRenta(res.data.tableData.bolsaDeValores.dataRenta || []);
-        setLoading(false);
-        console.log(res.data.errArray);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    };
+    // const fetchData = async () => {
+    //   try {
+    //     const res = await axios.get(
+    //       '/api/get-market-data',
+    //     );
+    //     setCryptoData(res.data.tableData.crypto || []);
+    //     setStocksData(res.data.tableData.stocks || []);
+    //     setBolsaDeValores(res.data.tableData.bolsaDeValores.dataBolsa || []);
+    //     setBolsaDeValoresRenta(res.data.tableData.bolsaDeValores.dataRenta || []);
+    //     setLoading(false);
+    //     console.log(res.data.errArray);
+    //   } catch (error) {
+    //     console.error(error);
+    //     setLoading(false);
+    //   }
+    // };
 
-    fetchData();
+    // fetchData();
   }, []);
 
   if (loading || cryptoData === null) {
