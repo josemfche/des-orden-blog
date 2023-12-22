@@ -120,12 +120,12 @@ const getStocksData = async (symbols) => {
 export default async function handler(req, res) {
   const tableData = {};
   const errArray = [];
-  try {
-    tableData.crypto = await getCryptoData();
-  } catch (error) {
-    console.error(error);
-    errArray.push('Error fetching data from CoinMarketCap API');
-  }
+  // try {
+  //   tableData.crypto = await getCryptoData();
+  // } catch (error) {
+  //   console.error(error);
+  //   errArray.push('Error fetching data from CoinMarketCap API');
+  // }
   try {
     tableData.stocks = await getStocksData(['^IXIC', '^DJI', '^GSPC', '^BVSP', '^GDAXI', '^FTSE', '^FCHI', '^IBEX', 'NYSE:FEZ', '^MERV', '^N225', '^MXX']);
   } catch (error) {
